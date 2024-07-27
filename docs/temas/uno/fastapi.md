@@ -341,7 +341,7 @@ Se manejará la siguiente entrada de datos:
 
 ```python
 
-def sequential_search(dto: SolicitudBusqueda):
+def sequential_search(dto: SolicitudBusqueda) -> RespuestaBusqueda:
     indice_sin_encontrar: int = -1
     for indice, entero in enumerate(dto.arreglo): # (idx, elem) <- enumerate(colection)
         if entero == dto.objetivo:
@@ -359,7 +359,6 @@ Para la resolución del problema haremos uso de un ciclo `for each`, en Python e
 En cada iteración comparamos si el elemento es igual al buscado, si es así podemos devolver el índice e indicar que se ha encontrado con `True`, caso contrario a no encontrarlo, devolvemos `-1` e indicamos que no se ha encontrado con `False`.
 
 <img src='../../_static/images/tema_01/response.png' style='border-radius: 1rem;'/>
-
 
 ```{note}
 El uso de `enumerate` es muy común en Python, pero no es la única función que permite recorrer una colección y obtener tanto el índice como el valor de cada elemento, también podemos hacer uso de `zip`, `map`, `filter`, entre otros. Se invita fuertemente a investigar sobre estas funciones y cómo se pueden aplicar en Python.

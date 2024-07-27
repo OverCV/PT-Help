@@ -8,17 +8,17 @@ Lo normal es tener un directorio principal o carpeta donde se almacenen más car
 Lo primero que necesitamos es crear un directorio o carpeta donde ubicaremos todo el contenido y proyectos que desarrollemos en el curso. Para ello, sigue los siguientes pasos:
 
 1. Pulsa `win + e`, busca un directorio cómodo para ti y crea una carpeta con un nombre reconocible.
-   <img rounded='100' src='../../_static/images/tema_01/tec-prog.png'></img>
+   <img src='../../_static/images/tema_01/tec-prog.png' style='border-radius: 1rem;'/>
    Copiamos la ruta de la carpeta.
 2. Abrimos nuestro Visual Studio Code (VSC) y pulsamos `ctrl + k o`. Pegamos la ruta de la carpeta y pulsamos `enter`.
-    <img rounded='100' src='../../_static/images/tema_01/open-folder.png'></img>
+    <img src='../../_static/images/tema_01/open-folder.png' style='border-radius: 1rem;'/>
 
     ```{tip}
     Alternativamente puedes arrastrar la carpeta hasta el editor de código en VSC, al soltarla se abrirá dicha carpeta.
     ```
 
 3. Sólo si confías en tí mismo, acepta la advertencia de confianza pulsando en **Sí, confío en los autores**.
-    <img rounded='100' src='../../_static/images/tema_01/folder-access.png'></img>
+    <img src='../../_static/images/tema_01/folder-access.png' style='border-radius: 1rem;'/>
 4. Puedes comprobar con `ctrl + e` en el **Explorador de archivos** que has abierto el directorio padre.
 
 ```{dropdown} Desafío 00!
