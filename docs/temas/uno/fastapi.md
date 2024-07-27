@@ -325,8 +325,6 @@ Ya no necesitamos ejecutar `uvicorn` directamente, ya que `exec.py` esta delegad
 
 <img src='../../_static/images/tema_01/swagger.png' style='border-radius: 1rem;'/>
 
-
-
 ### Análisis de Búsqueda Secuencial
 
 La búsqueda secuencial o lineal es un algoritmo cual dado un arreglo desordenado o no de elementos diferentes, busca si un elemento dado está o no, si está devuelve el índice en el que se encuentra, si no, devuelve `-1`. Este algoritmo es de complejidad computacional temporal $T(n)\in O(n)$ *(lineal)*, es decir, su tiempo de ejecución es proporcional al tamaño del arreglo. en el peor escenario.
