@@ -20,6 +20,8 @@ repository:
   branch: main
 
 html:
+  favicon: _static/favicon.ico
+  use_favicon: true
   use_issues_button: true
   use_repository_button: true
   use_edit_page_button: true
