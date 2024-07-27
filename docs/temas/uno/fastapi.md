@@ -358,8 +358,14 @@ def sequential_search(dto: SolicitudBusqueda):
 Para la resolución del problema haremos uso de un ciclo `for each`, en Python existe la función `enumerate` que nos permite recorrer una colección asociando un indice a cada elemento, nos devuelve una tupla donde primero obtenemos el índice y luego el elemento.
 En cada iteración comparamos si el elemento es igual al buscado, si es así podemos devolver el índice e indicar que se ha encontrado con `True`, caso contrario a no encontrarlo, devolvemos `-1` e indicamos que no se ha encontrado con `False`.
 
-y obtener tanto el índice como el valor de cada elemento, en este caso, el índice y el entero del arreglo. Si el entero es igual al objetivo, entonces devolvemos un objeto de tipo `RespuestaBusqueda` con el índice y `True`, si no, devolvemos un objeto de tipo `RespuestaBusqueda` con índice `-1` y `False` puesto no se encontró.
+<img src='../../_static/images/tema_01/response.png' style='border-radius: 1rem;'/>
+
 
 ```{note}
 El uso de `enumerate` es muy común en Python, pero no es la única función que permite recorrer una colección y obtener tanto el índice como el valor de cada elemento, también podemos hacer uso de `zip`, `map`, `filter`, entre otros. Se invita fuertemente a investigar sobre estas funciones y cómo se pueden aplicar en Python.
+```
+
+```{dropdown}
+**🎉 Enhorabuena 🎊**
+Has hecho tu primera lógica en el Framework de FastAPI 🥳 Con esto tienes lo necesario para practicar aún más y explorar las distintas formas de manejar entradas de datos, definir esquemas y crear múltiples niveles de lógica en un aplicativo ¡Nos vemos hasta la próxima!
 ```
