@@ -12,7 +12,7 @@ Para instalar Python en tu computadora, sigue los siguientes pasos:
 
 1. Abre el navegador y accede a la página de descarga de [Python Windows](https://www.python.org/downloads/windows/).
 2. Descarga el instalador de Python y ejecútalo *(puedes descargar más de una versión e instalarlas paulatinamente)*.
-   <img src='../../_static/images/tema_01/py-vers.png.jpg'></img>
+   <img src='../../_static/images/tema_01/py-vers.png'></img>
 3. Asegúrate de seleccionar la opción de **Add Python to PATH**.
 4. Haz clic en "Install Now" y espera a que finalice la instalación.
 5. Abre una terminal *(busca cmd en Windows o usa `win + r`, escribe `cmd` y pulsa `enter`)* y ejecuta el siguiente comando para validar todas las versiones de Python que se hayan instalado en tu computadora:
@@ -40,7 +40,6 @@ py -0p
 :::
 
 ::::
-
 
 ```{tip}
 Si eres usuario Windows es posible instalar Python a través de la Microsoft Store, para ello busca Python en la tienda (en la versión deseada) y sigue los pasos de instalación.

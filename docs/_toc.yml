@@ -6,12 +6,12 @@ chapters:
       - file: temas/uno/instalar_cpp_tools
       - file: temas/uno/instalar_vsc
       - file: temas/uno/instalar_python
-      - file: temas/uno/definir_reqs
+      - file: temas/uno/configuracion
+      - file: temas/uno/fastapi
 
   - file: tema_02
     sections:
       - file: temas/dos/wip
-
 
     # - file: complejidad_algoritmica
     #   sections:
