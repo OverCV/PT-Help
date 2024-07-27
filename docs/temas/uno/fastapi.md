@@ -134,7 +134,7 @@ Es importante conocer el sitio de Endpoints de FastAPI, este es conocido como `S
 🎉 Felicidades 🎊 Has construído tu primer aplicativo FastAPI 🥳 De aquí en adelante vienen conceptos para dar una arquitectura sostenible y escalable al aplicativo.
 ```
 
-### Rutas y Esquemas
+### Esquemas
 
 Vamos a generar un nuevo archivo llamado `exec.py` al lado de `main.py` y vamos a agregar el siguiente código:
 
@@ -200,8 +200,166 @@ class SolicitudBusqueda(BaseModel):
     )
 ```
 
-En este definimos un esquema de tipo `BaseModel` *(Usado para crear modelos Pydantic)* que contiene un arreglo de enteros y un número objetivo. El objeto `Field` puede dejarse como sólo `Field(...)` pero por claridad se le ha añadido un título y una descripción, así mismo es importante definir los tipos de parámetros utilizados.
+En este definimos un esquema de tipo `BaseModel` *(Usado para crear modelos Pydantic)* que contiene un arreglo de enteros y un número objetivo. Todas las entradas en el cuerpo de datos se definirán con el objeto `Field`, este puede dejarse sólo como `Field(...)` pero por claridad se le ha añadido un título y una descripción, así mismo es importante definir los tipos de parámetros utilizados.
 
-Ahora, `model_config` no es un parámetro de nuestra petición, sino que es un parámetro ajustable de BaseModel para ayudarnos a definir modelos, en este caso darle un título, descripción, permitir llenar los datos dándoselos a cada nombre pero, lo más importante, dar **un ejemplo** de cómo se vería la entrada de datos.
+```{dropdown} ¿Cómo tipo en python?
 
-Debemos modificar el archivo `main.py` para que importe las rutas que vamos a definir en el archivo `busqueda.py`, además de importar las librerías necesarias para poder hacer uso de FastAPI.
+Tipar en python es algo que siempre ha sido opcional, pero desde Python 3.5+ es posible tipar variables y funciones, esto con el fin de mejorar legibilidad y sobre todo, poder detectar errores o evitar infringir restricciones de nuestros datos.
+La estructura es `nombre_variable: tipo = valor`, donde `tipo` es el tipo de dato que se espera y `valor` es el valor que se le asigna a la variable. En las funciones, se espera un tipo de dato de retorno, esto se define con `-> tipo_retorno` así mismo como los argumentos de la función `parametro: tipo` consecuentemente.
+
+```python
+from typing import Callable
+
+
+# Variables básicas
+mi_numero: int = 5
+mi_cadena: str = "Técnicas!"
+mi_flotante: float = 3.1416
+mi_booleano: bool = True
+
+# Colecciones
+mi_lista_entera: list[int] = [1, 2, 3, 4, 5]
+mi_diccionario_flotante: dict[str, float] = {"pi": 3.1416, "e": 2.7182, "phi": 1.6180}
+mi_conjunto_booleano: set[bool, bool] = {True, False}
+mi_tupla_cadena: tuple[str, ...] = ("Hola", "Mundo")
+
+
+# Funciones
+def suma(a: int, b: int) -> int:
+    return a + b
+
+
+# También se pueden tipar variables que contengan funciones
+adicion: Callable[[int, int], int] = suma
+resultado: int = adicion(5, 5)
+
+# Así como se puede tipar con datos básicos, también se puede hacer con clases y funciones.
+# Puedes probar a tipar colecciones más complejas como listas de diccionarios, diccionarios de listas, etc.
+
+lista_de_diccionarios: list[dict[str, int]] = [{"a": 1, "b": 2}, {"c": 3, "b": 4}]
+diccionario_de_listas: dict[str, list[int]] = {"a": [1, 2, 3], "b": [4, 5, 6]}
+diccionario_de_diccionarios: dict[str, dict[str, int]] = {
+    "a": {"b": 1, "c": 2},
+    "d": {"e": 3, "f": 4},
+}
+conjunto_de_tuplas: set[tuple[str, int]] = {("a", 1), ("b", 2), ("c", 3)}
+
+# Se recomienda aprender sobre los Diccionarios Tipados (TypedDict), una forma precisa para tipar diccionarios,
+# delimitando lo que estos puedan recibir, evitando así errores o incertidumbres.
+
+```
+
+```{error}
+Aunque se haga aplicación de un tipado a un objeto en python, una asignación indebida no generará error como en otros lenguajes, pero sí una advertencia que debemos atender.
+```
+
+Ahora, `model_config` no es un parámetro de entrada en de nuestra petición, sino que es un parámetro ajustable de BaseModel para ayudarnos a definir modelos, en este caso darle un título, descripción, permitir llenar los datos dándoselos a cada nombre pero, lo más importante, dar **un ejemplo** de cómo se vería la entrada de datos.
+
+Añadimos ahora un esquema de respuesta en el mismo archivo `busqueda.py` dentro de la carpeta `schemas`:
+
+```python
+class RespuestaBusqueda(BaseModel):
+    indice: int = Field(
+        ...,
+        title="Índice",
+        description="Índice del número encontrado en el arreglo",
+    )
+    encontrado: bool = Field(
+        ...,
+        title="Encontrado",
+        description="Indica si el número fue encontrado en el arreglo como True, si no, False",
+    )
+```
+
+Hemos definido cómo es que un **Cliente** deberá enviarnos los datos y con qué estructura, nosotros como **Servidor** responderemos a esa petición. Este proceso es fundamental para la comunicación entre ambos, ya que si no se respetan las estructuras, no se podrá realizar la comunicación.
+
+### Rutas
+
+Debemos tener en cuenta que no es recomendado el aplicar lógica de negocio en una ruta, para ello más adelante se separará en otro módulo llamado `services`, pero por ahora con fin meramente demostrativo pasaremos a la implementación de la Búsqueda Secuencial en el archivo `busqueda.py` dentro de la carpeta `routes`:
+
+Primero creamos el `router`, este contendrá todos los **endpoints** o puntos de acceso al dispositivo o Cliente que lo solicite. En este caso, vamos a definir un solo endpoint que será de tipo `POST` y que recibirá un objeto de tipo `SolicitudBusqueda` y devolverá un objeto de tipo `RespuestaBusqueda`.
+
+```python
+from fastapi import APIRouter, status
+from api.schemas.busqueda import SolicitudBusqueda, RespuestaBusqueda
+
+router = APIRouter()
+
+@router.post(
+    "/secuencial",
+    status_code=status.HTTP_200_OK,
+    response_model=RespuestaBusqueda,
+)
+def sequential_search(dto: SolicitudBusqueda):
+    # Algoritmo aquí! #
+    return RespuestaBusqueda(
+        indice=-1,
+        encontrado=False,
+    )
+```
+
+Debemos modificar el archivo `main.py` para que importe las rutas que vamos a definir en el archivo `busqueda.py`, además de importar las librerías necesarias para poder hacer uso de FastAPI. Para esto haremos uso de la función `include_router` que nos permite incluir las rutas definidas en un archivo en particular.
+
+```python
+from fastapi import FastAPI
+
+app: FastAPI = FastAPI(
+    title="Mini Backend | Mi Nombre.",
+    summary="Técnicas de programación, 2024B",
+    version="1.0.0",
+)
+
+app.include_router(busqueda.router, prefix="/busqueda", tags=["Búsqueda"])
+
+@app.get("/")
+def root() -> dict[str, str]:
+    return {"data": "Hello algorithms!"}
+```
+
+Finalmente hacemos ejecución de nuestro archivo `exec.py` y accedemos a la sección de docs.
+
+```powershell
+python exec.py
+```
+
+Ya no necesitamos ejecutar `uvicorn` directamente, ya que `exec.py` esta delegado como inicio del aplicativo, de forma que ejecuta `app` desde main el cual a su vez carga todas las rutas (incluídas) en vuestro navegador. El flujo finalmente termina cuando la ruta devuelve el objeto respuesta para que podamos verlo en el navegador.
+
+<img src='../../_static/images/tema_01/swagger.png' style='border-radius: 1rem;'/>
+
+
+
+### Análisis de Búsqueda Secuencial
+
+La búsqueda secuencial o lineal es un algoritmo cual dado un arreglo desordenado o no de elementos diferentes, busca si un elemento dado está o no, si está devuelve el índice en el que se encuentra, si no, devuelve `-1`. Este algoritmo es de complejidad computacional temporal $T(n)\in O(n)$ *(lineal)*, es decir, su tiempo de ejecución es proporcional al tamaño del arreglo. en el peor escenario.
+
+```{note}
+No, no es un typo, el argumento `dto` es una abreviación de `Data Transfer Object`, es una forma de referirse a un objeto que se utiliza para transferir datos entre subsistemas de una aplicación. En este caso, `dto` es el objeto que recibe la petición del Cliente y es el objeto que se envía como respuesta al Cliente.
+```
+
+Se manejará la siguiente entrada de datos:
+<img src='../../_static/images/tema_01/requesting.png' style='border-radius: 1rem;'/>
+
+```python
+
+def sequential_search(dto: SolicitudBusqueda):
+    indice_sin_encontrar: int = -1
+    for indice, entero in enumerate(dto.arreglo): # (idx, elem) <- enumerate(colection)
+        if entero == dto.objetivo:
+            return RespuestaBusqueda(
+                indice=indice,
+                encontrado=True,
+            )
+    return RespuestaBusqueda(
+        indice=-indice_sin_encontrar,
+        encontrado=False,
+    )
+```
+
+Para la resolución del problema haremos uso de un ciclo `for each`, en Python existe la función `enumerate` que nos permite recorrer una colección asociando un indice a cada elemento, nos devuelve una tupla donde primero obtenemos el índice y luego el elemento.
+En cada iteración comparamos si el elemento es igual al buscado, si es así podemos devolver el índice e indicar que se ha encontrado con `True`, caso contrario a no encontrarlo, devolvemos `-1` e indicamos que no se ha encontrado con `False`.
+
+y obtener tanto el índice como el valor de cada elemento, en este caso, el índice y el entero del arreglo. Si el entero es igual al objetivo, entonces devolvemos un objeto de tipo `RespuestaBusqueda` con el índice y `True`, si no, devolvemos un objeto de tipo `RespuestaBusqueda` con índice `-1` y `False` puesto no se encontró.
+
+```{note}
+El uso de `enumerate` es muy común en Python, pero no es la única función que permite recorrer una colección y obtener tanto el índice como el valor de cada elemento, también podemos hacer uso de `zip`, `map`, `filter`, entre otros. Se invita fuertemente a investigar sobre estas funciones y cómo se pueden aplicar en Python.
+```

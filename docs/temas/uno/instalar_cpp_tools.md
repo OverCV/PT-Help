@@ -13,7 +13,7 @@ Para instalar las herramientas de desarrollo de C++ en Windows, sigue los siguie
 1. Abre el navegador y accede a la página de descarga de [Visual Studio - Build Tools](https://visualstudio.microsoft.com/downloads/?q=build+tools).
 2. Descarga el instalador de Visual Studio Build Tools y ejecútalo. Asegúrate de seleccionar la opción de instalar las herramientas de desarrollo de C++.
 
-<img src="../../_static/images/tema_01/cpp_tools_install.png"/>
+<img src="../../_static/images/tema_01/cpp_tools_install.png" style='border-radius: 1rem;'/>
 
 1. Espera a que finalice la instalación y reinicia tu computadora.
 2. Abre una terminal *(busca cmd en windows o usa `win + r`, escribe `cmd` y pulsa `enter`)* y ejecuta el siguiente comando para verificar que las herramientas de C++ se hayan instalado correctamente:
