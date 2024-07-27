@@ -1,7 +1,8 @@
 ---
 title: Bienvenida al curso
 ---
-# Bienvenido a Análisis y Diseño de Algoritmos
+
+## Bienvenido a Análisis y Diseño de Algoritmos
 
 En este sitio se compartirá información relevante sobre el curso y proyecto en temas relacionados al fascinante mundo del Análisis y Diseño de Algoritmos.
 
