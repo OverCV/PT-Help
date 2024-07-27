@@ -1,6 +1,6 @@
 # Tema 01: Introducción a la web 🌐
 
-Bienvenid@ al primer tema del curso. En esta unidad, aprenderemos los conceptos básicos de desarrollo web y cómo crear una página web simple utilizando HTML y CSS.
+Bienvenid@ al primer tema del curso. En esta unidad, aprenderemos los conceptos básicos de desarrollo web.
 
 ## Motivación
 
