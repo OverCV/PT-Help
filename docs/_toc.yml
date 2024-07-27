@@ -1,31 +1,43 @@
 format: jb-book
 root: index
 chapters:
-  - file: introduccion
-  - file: complejidad_algoritmica
+  - file: tema_01
     sections:
-      - file: "temas/notacion_asintotica"
-      - file: "temas/analisis_peor_caso"
-      - file: "temas/analisis_promedio"
-  - file: estructuras_de_datos
+      - file: temas/uno/instalar_cpp_tools
+      - file: temas/uno/instalar_vsc
+      - file: temas/uno/instalar_python
+      - file: temas/uno/definir_reqs
+
+  - file: tema_02
     sections:
-      - file: "temas/listas_enlazadas"
-      - file: "temas/arboles"
-      - file: "temas/grafos"
-  - file: algoritmos_ordenamiento
-    sections:
-      - file: "temas/bubble_sort"
-      - file: "temas/quick_sort"
-      - file: "temas/merge_sort"
-  - file: algoritmos_busqueda
-    sections:
-      - file: "temas/busqueda_binaria"
-      - file: "temas/busqueda_profundidad"
-      - file: "temas/busqueda_anchura"
-  - file: tecnicas_diseno
-    sections:
-      - file: "temas/divide_y_venceras"
-      - file: "temas/programacion_dinamica"
-      - file: "temas/algoritmos_voraces"
-  - file: proyectos
-  - file: bibliografia
+      - file: temas/dos/wip
+
+  - file: README.md
+
+    # - file: complejidad_algoritmica
+    #   sections:
+    #     - file: temas/notacion_asintotica
+    #     - file: temas/analisis_peor_caso
+    #     - file: temas/analisis_promedio
+    # - file: estructuras_de_datos
+    #   sections:
+    #     - file: temas/listas_enlazadas
+    #     - file: temas/arboles
+    #     - file: temas/grafos
+    # - file: algoritmos_ordenamiento
+    #   sections:
+    #     - file: temas/bubble_sort
+    #     - file: temas/quick_sort
+    #     - file: temas/merge_sort
+    # - file: algoritmos_busqueda
+    #   sections:
+    #     - file: temas/busqueda_binaria
+    #     - file: temas/busqueda_profundidad
+    #     - file: temas/busqueda_anchura
+    # - file: tecnicas_diseno
+    #   sections:
+    #     - file: temas/divide_y_venceras
+    #     - file: temas/programacion_dinamica
+    #     - file: temas/algoritmos_voraces
+    # - file: proyectos
+    # - file: bibliografia

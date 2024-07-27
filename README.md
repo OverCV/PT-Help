@@ -1,6 +1,6 @@
-# ADA-Help
+# PT-Help
 
-Helper project for the Analysis and Design of Algorithms course.
+Helper project for the Programming Technics course.
 
 Introducción al curso:
-[Análisis y Diseño de Algoritmos](https://overcv.github.io/ADA-Help/)
+[Técnicas de Programación](https://overcv.github.io/ADA-Help/)

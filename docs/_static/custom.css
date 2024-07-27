@@ -1,0 +1,27 @@
+/* background-image: url('background.png'); */
+/* body {
+    background-image: "./ucaldas-logo.png";
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+h1 {
+    color: #ffe342;
+    text-align: center;
+} */
+
+/* custom.css */
+
+.hero-banner {
+    color: #fdbb2d;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #ff0000;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+}
