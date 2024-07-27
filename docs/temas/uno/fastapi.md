@@ -339,7 +339,6 @@ Se manejará la siguiente entrada de datos:
 <img src='../../_static/images/tema_01/requesting.png' style='border-radius: 1rem;'/>
 
 ```python
-
 def sequential_search(dto: SolicitudBusqueda) -> RespuestaBusqueda:
     indice_sin_encontrar: int = -1
     for indice, entero in enumerate(dto.arreglo): # (idx, elem) <- enumerate(colection)
