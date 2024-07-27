@@ -12,7 +12,6 @@ chapters:
     sections:
       - file: temas/dos/wip
 
-  - file: README.md
 
     # - file: complejidad_algoritmica
     #   sections:

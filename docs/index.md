@@ -79,7 +79,7 @@ Programación Funcional
 :::
 
 :::{grid-item-card}
-:link: tema_03
+<!-- :link: tema_03 -->
 :link-type: doc
 :class-header: bg-light
 **Tema 03 🎯**
@@ -88,7 +88,7 @@ Algoritmos y Complejidad
 :::
 
 :::{grid-item-card}
-:link: tema_04
+<!-- :link: tema_04 -->
 :link-type: doc
 :class-header: bg-light
 **Tema 04 🧵**
@@ -97,7 +97,7 @@ Programación Funcional
 :::
 
 :::{grid-item-card}
-:link: tema_05
+<!-- :link: tema_05 -->
 :link-type: doc
 :class-header: bg-light
 **🚦 Tema 05**
@@ -106,7 +106,7 @@ Depuración y Pruebas
 :::
 
 :::{grid-item-card}
-:link: tema_06
+<!-- :link: tema_06 -->
 :link-type: doc
 :class-header: bg-light
 **💻 Tema 06**
@@ -175,7 +175,7 @@ Buenas Prácticas y Metodologías
 
 ::::
 
-1. [Introducción a los algoritmos](./temas/introduccion.md)
+1. [Introducción al Backend](./temas/uno/instalar_cpp_tools.md)
 
 
 
