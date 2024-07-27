@@ -2,7 +2,7 @@
 
 Ya que nos encontramos en la carpeta `Mini-Back`, vamos a entender FastAPI como un framework web moderno y rápido para crear APIs con Python 3.6+ *(3.6 en adelante)* basado en estándares abiertos y estándares de tipo de datos Python. Es fácil de aprender y usar, pero también es muy rápido y eficiente.
 
-Lo primero que debemos hacer es configurar correctamente nuestro entorno de desarrollo, esto aplica para cualquier desarrollo que se realice en Python
+Lo primero que debemos hacer es configurar correctamente nuestro entorno de desarrollo, esto aplica para cualquier desarrollo que se realice en Python.
 
 ## Entorno virtual
 
@@ -21,11 +21,11 @@ python -m venv .venv
 ```
 
 ```{note}
-Si usamos `ctrl + shift + p` y escribimos `Python: Create Environment`, seleccionamos la opción `Python: Select Interpreter` y elegimos la opción `Create New Environment`, seleccionamos Venv y finalmente la versión de Python que deseemos.
+Si usamos `ctrl + shift + p` y escribimos `Python: Create Environment`, seleccionamos la opción `Venv` (Virtual Environment), seleccionamos Venv y finalmente la versión de Python que deseemos.
 ```
 
 *El uso de `-m` es para especificar un módulo, en este caso `venv` que es el módulo que nos permite crear entornos virtuales y así no tomar otro módulo que se pueda llamar igual.*
-Este comando creará un directorio llamado `.venv` en la carpeta `Mini-Back`. No obsatante **debemos activar siempre** el entorno virtual *(se desactiva al cerrar el editor)*, ejecutamos el siguiente comando:
+Este comando creará un directorio llamado `.venv` en la carpeta `Mini-Back`. No obstante **debemos activar siempre** el entorno virtual *(se desactiva al cerrar el editor)*, ejecutamos el siguiente comando:
 
 ```powershell
 .venv\Scripts\activate
@@ -52,10 +52,10 @@ ruff
 ```{note}
 En python 3.8+ se puede usar `pip freeze > requirements.txt` para habiendo ya instalado las dependencias, generar este archivo `requirements.txt` con todas las librerías instaladas en el entorno virtual.
 ```{dropdown} Más sobre versionamiento!
-Si no espacificamos la versión en las librerías, se instalará la última versión disponible.
+Si no especificamos la versión en las librerías, se instalará la última versión disponible.
 Para especificar una versión exacta, se puede hacer de la siguiente manera:
 
-```plaintext
+```txt
 fastapi==0.68.0
 uvicorn>=0.15.0,<=0.17.0
 pydantic<1.8.2
@@ -64,7 +64,7 @@ ruff~=0.1.0
 ```
 
 ```{note}
-instalación de Python aislada de la instalación global. Esto significa que los paquetes instalados en el entorno virtual no afectarán a la instalación global y viceversa.
+La instalación de Python en un entorno virtual está aislada de la instalación global. Esto significa que los paquetes instalados en el entorno virtual no afectarán a la instalación global y viceversa.
 ```
 
 Ahora sí vamos a instalar FastAPI, para ello, abrimos una terminal y ejecutamos el siguiente comando:
