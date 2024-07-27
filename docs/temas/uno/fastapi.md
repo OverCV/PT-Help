@@ -246,7 +246,6 @@ conjunto_de_tuplas: set[tuple[str, int]] = {("a", 1), ("b", 2), ("c", 3)}
 
 # Se recomienda aprender sobre los Diccionarios Tipados (TypedDict), una forma precisa para tipar diccionarios,
 # delimitando lo que estos puedan recibir, evitando así errores o incertidumbres.
-
 ```
 
 ```{error}
