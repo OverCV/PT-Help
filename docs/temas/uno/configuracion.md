@@ -18,7 +18,7 @@ Lo primero que necesitamos es crear un directorio o carpeta donde ubicaremos tod
     ```
 
 3. Sólo si confías en tí mismo, acepta la advertencia de confianza pulsando en **Sí, confío en los autores**.
-    <img src='../../_static/images/tema_01/folder-access.png' style='border-radius: 1rem;'/>
+<img src='../../_static/images/tema_01/folder-access.png' style='border-radius: 1rem;'/>
 4. Puedes comprobar con `ctrl + e` en el **Explorador de archivos** que has abierto el directorio padre.
 
 ```{dropdown} Desafío 00!

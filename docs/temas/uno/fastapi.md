@@ -346,7 +346,7 @@ def sequential_search(dto: SolicitudBusqueda) -> RespuestaBusqueda:
                 encontrado=True,
             )
     return RespuestaBusqueda(
-        indice=-indice_sin_encontrar,
+        indice=indice_sin_encontrar,
         encontrado=False,
     )
 ```
