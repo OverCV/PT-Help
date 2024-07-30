@@ -2,15 +2,13 @@
 
 Ya que nos encontramos en la carpeta `Mini-Back`, vamos a entender FastAPI como un framework web moderno y rápido para crear APIs con Python 3.6+ *(3.6 en adelante)* basado en estándares abiertos y estándares de tipo de datos Python. Es fácil de aprender y usar, pero también es muy rápido y eficiente.
 
-
-
 Lo primero que debemos hacer es configurar correctamente nuestro entorno de desarrollo, esto aplica para cualquier desarrollo que se realice en Python.
 
 ## Entorno virtual
 
-Opcional, se recomienda aprender a usar entornos virtuales en Python si queremos manejar las dependencias de nuestro proyecto de manera eficiente y sin afectar la instalación global de Python.
+Opcionalmente se recomienda aprender a usar entornos virtuales en Python si queremos manejar las dependencias de nuestro proyecto de manera eficiente y sin afectar la instalación global de Python.
 
-~~~{dropdown}
+~~~{dropdown} Configuración e Instalación
 Un entorno virtual es un directorio que tiene como función aislar todas las librerías, módulos y dependencias para un proyecto en particular. Esto se hace porque cada proyecto puede tener diferentes versiones de las librerías y módulos, y a veces pueden ser incompatibles entre sí.
 
 Para crear un entorno virtual, debemos instalar la librería `virtualenv` que nos permitirá crear un entorno virtual. Para ello, abrimos una terminal y ejecutamos el siguiente comando:
@@ -56,11 +54,46 @@ python-dotenv
 ruff
 ```
 
-```{note}
+~~~{note}
 En python 3.8+ se puede usar `pip freeze > requirements.txt` para habiendo ya instalado las dependencias, generar este archivo `requirements.txt` con todas las librerías instaladas en el entorno virtual.
-```{dropdown} Más sobre versionamiento!
-Si no especificamos la versión en las librerías, se instalará la última versión disponible.
-Para especificar una versión exacta, se puede hacer de la siguiente manera:
+~~~
+
+~~~{dropdown} Más sobre versionamiento!
+
+Cuando defines las dependencias en tu archivo `requirements.txt`, puedes especificar las versiones de varias maneras para asegurar que tu proyecto use versiones compatibles de cada librería. Aquí te explico algunas opciones:
+
+1. **Versión exacta**: Usarás exactamente la versión especificada.
+    ```text
+    fastapi==0.68.0
+    ```
+    Esto significa que `fastapi` se instalará en la versión `0.68.0`.
+
+2. **Mínima versión específica**: Usarás al menos la versión especificada.
+    ```text
+    uvicorn>=0.15.0
+    ```
+    Esto significa que `uvicorn` se instalará en la versión `0.15.0` o una versión más reciente.
+
+3. **Máxima versión específica**: No se instalarán versiones mayores que la especificada.
+    ```text
+    pydantic<1.8.2
+    ```
+    Esto significa que `pydantic` se instalará en una versión anterior a la `1.8.2`.
+
+4. **Rango de versiones**: Puedes combinar criterios para definir un rango de versiones permitidas.
+    ```text
+    uvicorn>=0.15.0,<=0.17.0
+    ```
+    Esto significa que `uvicorn` se instalará en una versión entre la `0.15.0` y la `0.17.0`, inclusive.
+
+5. **Versión compatible (tilde)**: Instala versiones compatibles con la especificada.
+    ```text
+    ruff~=0.1.0
+    ```
+    Esto significa que `ruff` se instalará en una versión compatible con la `0.1.0`. Generalmente, esto incluye cualquier versión que no cambie el primer número después del punto (por ejemplo, `0.1.1`, `0.1.2`, pero no `0.2.0`).
+
+
+### Ejemplo Completo
 
 ```text
 fastapi==0.68.0
@@ -70,9 +103,12 @@ python-dotenv>=0.19.0
 ruff~=0.1.0
 ```
 
-```{note}
+Si no especificamos la versión en las librerías, se instalará la última versión disponible. Es importante tener en cuenta que las versiones de las librerías pueden cambiar y esto puede afectar el funcionamiento de tu proyecto, por lo que es recomendable especificar las versiones de las librerías que se van a utilizar.
+~~~
+
+~~~{warning}
 La instalación de Python en un entorno virtual está aislada de la instalación global. Esto significa que los paquetes instalados en el entorno virtual no afectarán a la instalación global y viceversa.
-```
+~~~
 
 Sabiendo que tenemos activado el entorno vitual, vamos a instalar las librerías y módulos necesarios para nuestro proyecto. Para ello, ejecutamos el siguiente comando:
 
