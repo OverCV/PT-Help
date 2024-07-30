@@ -2,6 +2,13 @@
 
 Ya que nos encontramos en la carpeta `Mini-Back`, vamos a entender FastAPI como un framework web moderno y rápido para crear APIs con Python 3.6+ *(3.6 en adelante)* basado en estándares abiertos y estándares de tipo de datos Python. Es fácil de aprender y usar, pero también es muy rápido y eficiente.
 
+~~~{dropdown} ¿Qué es una API 🔀?
+Una Interfaz para Programar Aplicaciones (Application Programming Interface — API) permite a dos o más aplicaciones ***(en uno o más dispositivos)*** comunicarse entre sí operando sobre una serie de datos y reglas. En el caso de una API web, se comunica a través de la red, permitiendo a las aplicaciones enviar y recibir datos en un formato específico, como JSON o XML.
+
+ñ
+Con esto es importante entender las API's generalmente *(pero no siempre)* manejan una base o fuente de datos que funcionen como memoria de la aplicación ***(permitiendo generar conceptos como la persistencia e integridad de datos, trazabilidad o auditoría y gestión como sistema de información)***.
+~~~
+
 Lo primero que debemos hacer es configurar correctamente nuestro entorno de desarrollo, esto aplica para cualquier desarrollo que se realice en Python.
 
 ## Entorno virtual
@@ -373,7 +380,7 @@ Ya no necesitamos ejecutar `uvicorn` directamente, ya que `exec.py` esta delegad
 La búsqueda secuencial o lineal es un algoritmo cual dado un arreglo desordenado o no de elementos diferentes, busca si un elemento dado está o no, si está devuelve el índice en el que se encuentra, si no, devuelve `-1`. Este algoritmo es de complejidad computacional temporal $T(n)\in O(n)$ *(lineal)*, es decir, su tiempo de ejecución es proporcional al tamaño del arreglo. en el peor escenario.
 
 ```{note}
-No, no fue un typo, el argumento `dto` es una abreviación de `Data Transfer Object`, es una forma de referirse a un objeto que se utiliza para transferir datos entre subsistemas de una aplicación. En este caso, `dto` es el objeto que recibe la petición del Cliente y es el objeto que se envía como respuesta al Cliente.
+El argumento `dto` es una abreviación de `Data Transfer Object`, es una forma de referirse a un objeto que se utiliza para transferir datos entre subsistemas de una aplicación. En este caso, `dto` es el objeto que recibe la petición del Cliente y es el objeto que se envía como respuesta al Cliente.
 ```
 
 Se manejará la siguiente entrada de datos:
