@@ -3,9 +3,10 @@
 Ya que nos encontramos en la carpeta `Mini-Back`, vamos a entender FastAPI como un framework web moderno y rápido para crear APIs con Python 3.6+ *(3.6 en adelante)* basado en estándares abiertos y estándares de tipo de datos Python. Es fácil de aprender y usar, pero también es muy rápido y eficiente.
 
 ~~~{dropdown} ¿Qué es una API 🔀?
-Una Interfaz para Programar Aplicaciones (Application Programming Interface — API) permite a dos o más aplicaciones ***(en uno o más dispositivos)*** comunicarse entre sí operando sobre una serie de datos y reglas. En el caso de una API web, se comunica a través de la red, permitiendo a las aplicaciones enviar y recibir datos en un formato específico, como JSON o XML.
+Una Interfaz para Programar Aplicaciones (Application Programming Interface — `API`) permite a dos o más aplicaciones ***(en uno o más dispositivos)*** comunicarse entre sí operando sobre una serie de datos y reglas. En el caso de una API web, se comunica a través de la red, permitiendo a las aplicaciones enviar y recibir datos en un formato específico, como JSON o XML.
 
-ñ
+Ahora, los endpoints son los puntos de acceso (URLs) a un servicio web que utilizan los clientes para intentar manipular los recursos de una API. Cada endpoint está asociado con una operación específica, como `GET` (Obtener información), `POST` (Añadir nueva información), `PUT` (Reemplazar una información guardada), o `DELETE` (Eliminar información de la API).
+
 Con esto es importante entender las API's generalmente *(pero no siempre)* manejan una base o fuente de datos que funcionen como memoria de la aplicación ***(permitiendo generar conceptos como la persistencia e integridad de datos, trazabilidad o auditoría y gestión como sistema de información)***.
 ~~~
 
