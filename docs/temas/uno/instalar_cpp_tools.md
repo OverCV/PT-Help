@@ -8,7 +8,7 @@ Este paso no es absolutamente necesario, pero es recomendable para tener un ento
 
 ## Instalación en Windows
 
-Para instalar las herramientas de desarrollo de C++ en Windows, sigue los siguientes pasos:
+Para instalar las herramientas de desarrollo de C++ en Windows, sigue estos pasos:
 
 1. Abre el navegador y accede a la página de descarga de [Visual Studio - Build Tools](https://visualstudio.microsoft.com/downloads/?q=build+tools).
 2. Descarga el instalador de Visual Studio Build Tools y ejecútalo. Asegúrate de seleccionar la opción de instalar las herramientas de desarrollo de C++.

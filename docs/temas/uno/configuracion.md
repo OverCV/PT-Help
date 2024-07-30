@@ -5,7 +5,7 @@
 Es importante tener un espacio de trabajo organizado y limpio para poder trabajar de manera eficiente y sin confusiones.
 Lo normal es tener un directorio principal o carpeta donde se almacenen más carpetas definidas como proyectos independientes entre sí. En este curso, usaremos Visual Studio Code (VSC) como editor de código, por lo que es importante tener una estructura de carpetas clara y ordenada.
 
-Lo primero que necesitamos es crear un directorio o carpeta donde ubicaremos todo el contenido y proyectos que desarrollemos en el curso. Para ello, sigue los siguientes pasos:
+Lo primero que necesitamos es crear un directorio o carpeta donde ubicaremos todo el contenido y proyectos que desarrollemos en el curso. Para ello sigue estos pasos:
 
 1. Pulsa `win + e`, busca un directorio cómodo para ti y crea una carpeta con un nombre reconocible.
    <img src='../../_static/images/tema_01/tec-prog.png' style='border-radius: 1rem;'/>

@@ -2,10 +2,15 @@
 
 Ya que nos encontramos en la carpeta `Mini-Back`, vamos a entender FastAPI como un framework web moderno y rápido para crear APIs con Python 3.6+ *(3.6 en adelante)* basado en estándares abiertos y estándares de tipo de datos Python. Es fácil de aprender y usar, pero también es muy rápido y eficiente.
 
+
+
 Lo primero que debemos hacer es configurar correctamente nuestro entorno de desarrollo, esto aplica para cualquier desarrollo que se realice en Python.
 
 ## Entorno virtual
 
+Opcional, se recomienda aprender a usar entornos virtuales en Python si queremos manejar las dependencias de nuestro proyecto de manera eficiente y sin afectar la instalación global de Python.
+
+~~~{dropdown}
 Un entorno virtual es un directorio que tiene como función aislar todas las librerías, módulos y dependencias para un proyecto en particular. Esto se hace porque cada proyecto puede tener diferentes versiones de las librerías y módulos, y a veces pueden ser incompatibles entre sí.
 
 Para crear un entorno virtual, debemos instalar la librería `virtualenv` que nos permitirá crear un entorno virtual. Para ello, abrimos una terminal y ejecutamos el siguiente comando:
@@ -36,6 +41,8 @@ Podremos notar cómo en la terminal aparece el nombre del entorno virtual activo
 ```powershell
 deactivate
 ```
+
+~~~
 
 ## Requerimientos
 

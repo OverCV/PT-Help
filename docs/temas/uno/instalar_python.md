@@ -8,7 +8,7 @@ Python es un lenguaje de programación de alto nivel, interpretado y orientado a
 
 ## Instalación de Python en Windows
 
-Para instalar Python en tu computadora, sigue los siguientes pasos:
+Para instalar Python en tu computadora, sigue estos pasos:
 
 1. Abre el navegador y accede a la página de descarga de [Python Windows](https://www.python.org/downloads/windows/).
 2. Descarga el instalador de Python y ejecútalo *(puedes descargar más de una versión e instalarlas paulatinamente)*.

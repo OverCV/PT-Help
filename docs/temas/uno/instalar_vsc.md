@@ -4,7 +4,7 @@ Visual Studio Code es un editor de código fuente desarrollado por Microsoft que
 
 ## Instalación en Windows
 
-Para instalar Visual Studio Code en Windows, sigue los siguientes pasos:
+Para instalar Visual Studio Code en Windows sigue estos pasos:
 
 1. Abre el navegador y accede a la página de descarga de [Visual Studio Code](https://code.visualstudio.com/).
 

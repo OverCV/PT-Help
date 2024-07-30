@@ -1,6 +1,6 @@
 # Tema 01: Introducción a la web 🌐
 
-Bienvenid@ al primer tema del curso. En esta unidad, aprenderemos los conceptos básicos de desarrollo web.
+Bienvenid@ al primer tema del curso. En esta unidad, aprenderemos algunos conceptos fundamentales que nos serán de mucha utilidad para desarrollar más allá de las ya conocidas aplicaciones de escritorio.
 
 ## Motivación
 
@@ -32,5 +32,5 @@ Desde la arquitectura más común en la web conocida como **cliente-servidor**, 
 
 ## La serpentosa amiga
 
-En este proceso vamos a llevar a cabo muchos procesos de abstracción, es decir, entender la funcionalidad actual del mecanismo y dar por hecho que hay demasiadas cosas que no podremos construir desde cero puesto no es el fin del curso ni pertinente en tiempo, no obstante se invita a indagar siempre que la curiosidad lo permita.
+En esta tarea vamos a llevar a cabo muchos procesos de abstracción, es decir, entender la funcionalidad actual del mecanismo y dar por hecho que hay demasiadas cosas que no podremos construir desde cero puesto no es el fin del curso ni pertinente en tiempo, no obstante se invita a indagar siempre que la curiosidad lo permita.
 Usaremos Python como medio para expresar la lógica del aplicativo en cuestión, donde luego haremos una conexión como servidor web.
