@@ -206,8 +206,8 @@ En este definimos los parámetros sobre los que va a funcionar el servidor, en e
 
 Ahora creamos dos folders, uno llamado `routes` y otro llamado `schemas` dentro de un folder llamado `api`, en el de rutas creamos un archivo llamado `busqueda.py`, su objetivo es contener los algoritmos de búsqueda vistos en el curso, acá se podrá entender la implementación de al menos uno de ellos, `Sequential Search`.
 
-El directorio actual debería verse de la siguiente manera:
-
+~~~{dropdown} Directorio actual
+Debería tener la siguiente estructura:
 ```markdown
 Mini-Back
 ├── .venv/
@@ -219,7 +219,7 @@ Mini-Back
 ├── main.py
 ├── exec.py
 └── requirements.txt
-```
+~~~
 
 Vamos a modificar sobre el esquema de `busqueda.py` para que contenga el siguiente código:
 
@@ -378,7 +378,7 @@ Ya no necesitamos ejecutar `uvicorn` directamente, ya que `exec.py` esta delegad
 
 ### Análisis de Búsqueda Secuencial
 
-La búsqueda secuencial o lineal es un algoritmo cual dado un arreglo desordenado o no de elementos diferentes, busca si un elemento dado está o no, si está devuelve el índice en el que se encuentra, si no, devuelve `-1`. Este algoritmo es de complejidad computacional temporal $T(n)\in O(n)$ *(lineal)*, es decir, su tiempo de ejecución es proporcional al tamaño del arreglo. en el peor escenario.
+La búsqueda secuencial o lineal es un algoritmo donde dado un arreglo desordenado o no de elementos distintos, valida la existencia de un elemento dado por el usuario *(la precondición)*, si está devuelve el índice en el que se encuentre, si no, devuelve `-1` *(la postcondición)*. Este algoritmo es de complejidad computacional temporal $T(n)\in O(n)$ *(lineal)*, es decir, su tiempo de ejecución es proporcional al tamaño del arreglo. en el peor escenario.
 
 ```{note}
 El argumento `dto` es una abreviación de `Data Transfer Object`, es una forma de referirse a un objeto que se utiliza para transferir datos entre subsistemas de una aplicación. En este caso, `dto` es el objeto que recibe la petición del Cliente y es el objeto que se envía como respuesta al Cliente.
@@ -402,13 +402,13 @@ def sequential_search(dto: SolicitudBusqueda) -> RespuestaBusqueda:
     )
 ```
 
-Para la resolución del problema haremos uso de un ciclo `for each`, en Python existe la función `enumerate` que nos permite recorrer una colección asociando un indice a cada elemento, nos devuelve una tupla donde primero obtenemos el índice y luego el elemento.
+Para la resolución del problema haremos uso de un ciclo `for-each` simultáneo a uno `for-i`, en Python existe la función `enumerate` que nos permite recorrer una colección asociando un indice a cada elemento, nos devuelve una tupla donde primero obtenemos el índice y luego el elemento.
 En cada iteración comparamos si el elemento es igual al buscado, si es así podemos devolver el índice e indicar que se ha encontrado con `True`, caso contrario a no encontrarlo, devolvemos `-1` e indicamos que no se ha encontrado con `False`.
 
 <img src='../../_static/images/tema_01/response.png' style='border-radius: 1rem;'/>
 
 ```{note}
-El uso de `enumerate` es muy común en Python, pero no es la única función que permite recorrer una colección y obtener tanto el índice como el valor de cada elemento, también podemos hacer uso de `zip`, `map`, `filter`, entre otros. Se invita fuertemente a investigar sobre estas funciones y cómo se pueden aplicar en Python.
+El uso de `enumerate` es muy común en Python, pero no es la única función que permite recorrer una colección de una forma especializada, podemos también hacer uso de `zip`, `map`, `filter`, entre otras. Se invita fuertemente a investigar sobre estas funciones y sus aplicaciones al iterar colecciones en Python.
 ```
 
 ```{dropdown}
