@@ -162,7 +162,7 @@ uvicorn main:app --reload
 ```
 
 ```{note}
-El comando `uvicorn` nos permite ejecutar el servidor web, `main:app` indica que el archivo `main.py` contiene la instancia de FastAPI y `--reload` nos permite recargar el servidor cada vez que se realice un cambio en el código.
+El comando `uvicorn` nos permite ejecutar el servidor web, `main:app` indica que en el archivo `main.py` contiene el objeto o instancia de `app` FastAPI *(el aplicativo)* y `--reload` permite recargar el servidor cada vez que se realice un cambio al código.
 ```
 
 De esta forma, cuando abramos un navegador y vayamos a la dirección indicada, cual por defecto es `http://127.0.0.1:8000/`, la previamente mencionada dirección IP de Localhost, donde lo que precede a los dos puntos es el puerto *(8080)*.
