@@ -128,7 +128,7 @@ En este indicamos que ejecutaremos el módulo `pip` de Python para instalar medi
 
 Esperamos a que se instalen todas las librerías y módulos necesarios para nuestro proyecto.
 
-## FastAPI
+## FastAPI Web Framework
 
 FastAPI nos permite hacer desarrollos en la web usando Python, no obstante tiene dependencia de `uvicorn` para poder ejecutar el servidor. Para ello, vamos a crear un archivo llamado `main.py` en la carpeta raíz y vamos a agregar el siguiente código:
 
@@ -155,7 +155,7 @@ Mini-Back
 └── requirements.txt
 ```
 
-Para ejecutarlo y ver el resultado, vamos a abrir una terminal y ejecutamos el siguiente comando:
+Para ver el resultado abrimos una terminal y ejecutamos el siguiente comando:
 
 ```powershell
 uvicorn main:app --reload
@@ -182,7 +182,7 @@ Es importante conocer el sitio de Endpoints de FastAPI, este es conocido como `S
 ```
 
 ```{dropdown}
-🎉 Felicidades 🎊 Has construído tu primer aplicativo FastAPI 🥳 De aquí en adelante vienen conceptos para dar una arquitectura sostenible y escalable al aplicativo.
+🎉 Felicidades 🎊 Has construído tu primer aplicativo FastAPI 🥳 De aquí en adelante vienen conceptos que darán una arquitectura sostenible y escalable a nuestro aplicativo.
 ```
 
 ### Esquemas
