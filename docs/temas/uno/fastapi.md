@@ -115,7 +115,7 @@ Si no especificamos la versión en las librerías, se instalará la última vers
 ~~~
 
 ~~~{warning}
-La instalación de Python en un entorno virtual está aislada de la instalación global. Esto significa que los paquetes instalados en el entorno virtual no afectarán a la instalación global y viceversa.
+La instalación de Python en un entorno virtual está aislada de la instalación global. Esto significa que los paquetes instalados en el entorno virtual no afectarán otros proyectos generados que no usen dicho entorno.
 ~~~
 
 Sabiendo que tenemos activado el entorno vitual, vamos a instalar las librerías y módulos necesarios para nuestro proyecto. Para ello, ejecutamos el siguiente comando:
