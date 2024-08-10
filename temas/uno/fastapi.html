@@ -1,0 +1,964 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Introducción a FastAPI &#8212; Técnicas de Programación</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=557cc708" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'temas/uno/fastapi';</script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Coming Soon U1… 🚧" href="../../unidad_01.html" />
+    <link rel="prev" title="Configuraciones finales" href="configuracion.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://github.com/OverCV.png" class="logo__image only-light" alt="Técnicas de Programación - Home"/>
+    <script>document.write(`<img src="https://github.com/OverCV.png" class="logo__image only-dark" alt="Técnicas de Programación - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    <span class='hero-banner'>Técnicas de Programación 👩‍💻💻👨‍💻</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../tema_01.html">Tema 01: Introducción a la web 🌐</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="instalar_cpp_tools.html">Instalación de C++ Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instalar_vsc.html">Instalación de Visual Studio Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instalar_python.html">Instalación y configuración de Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuracion.html">Configuraciones finales</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Introducción a FastAPI</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../unidad_01.html">Coming Soon U1… 🚧</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unidades/uno/adquisicion_datos.html">adquisicion_datos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unidades/uno/ad/lectura_escritura_consola.html">lectura_escritura_consola</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unidades/uno/ad/lectura_escritura_archivos.html">lectura_escritura_archivos</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../unidades/uno/operar_cadenas.html">operar_cadenas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../unidades/uno/operar_listas.html">operar_listas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../unidades/uno/operar_pilas.html">operar_pilas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../unidades/uno/operar_colas.html">operar_colas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../unidades/uno/problemas_aplicados.html">problemas_aplicados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../unidades/uno/documentacion_codigo.html">documentacion_codigo</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../unidad_02.html">Coming Soon U2… 🚧</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../unidades/dos/fuerza_bruta.html">fuerza_bruta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../unidades/dos/recursividad.html">recursividad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../unidades/dos/dividir_y_vencer.html">dividir_y_vencer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../unidades/dos/backtracking.html">backtracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../unidades/dos/resolucion_problemas.html">resolucion_problemas</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../unidad_03.html">Coming Soon U3… 🚧</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../unidades/tres/busqueda_lineal.html">busqueda_lineal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../unidades/tres/busqueda_binaria.html">busqueda_binaria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../unidades/tres/ordenamiento_burbuja.html">ordenamiento_burbuja</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../unidades/tres/ordenamiento_seleccion.html">ordenamiento_seleccion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../unidades/tres/ordenamiento_insercion.html">ordenamiento_insercion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../unidades/tres/ordenamiento_mezcla.html">ordenamiento_mezcla</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../unidades/tres/resolucion_problemas.html">resolucion_problemas</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/OverCV/ADA-Help" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/OverCV/ADA-Help/edit/main/temas/uno/fastapi.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/OverCV/ADA-Help/issues/new?title=Issue%20on%20page%20%2Ftemas/uno/fastapi.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/temas/uno/fastapi.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introducción a FastAPI</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entorno-virtual">Entorno virtual</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requerimientos">Requerimientos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fastapi-web-framework">FastAPI Web Framework</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#esquemas">Esquemas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rutas">Rutas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-busqueda-secuencial">Análisis de Búsqueda Secuencial</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduccion-a-fastapi">
+<h1>Introducción a FastAPI<a class="headerlink" href="#introduccion-a-fastapi" title="Link to this heading">#</a></h1>
+<p>Ya que nos encontramos en la carpeta <code class="docutils literal notranslate"><span class="pre">Mini-Back</span></code>, vamos a entender FastAPI como un framework web moderno y rápido para crear APIs con Python 3.6+ <em>(3.6 en adelante)</em> basado en estándares abiertos y estándares de tipo de datos Python. Es fácil de aprender y usar, pero también es muy rápido y eficiente.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">¿Qué es una API 🔀?</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Una Interfaz para Programar Aplicaciones (Application Programming Interface — <code class="docutils literal notranslate"><span class="pre">API</span></code>) permite a dos o más aplicaciones <em><strong>(en uno o más dispositivos)</strong></em> comunicarse entre sí operando sobre una serie de datos y reglas. En el caso de una API web, se comunica a través de la red, permitiendo a las aplicaciones enviar y recibir datos en un formato específico, como JSON o XML.</p>
+<p class="sd-card-text">Ahora, los endpoints son los puntos de acceso (URLs) a un servicio web que utilizan los clientes para intentar manipular los recursos de una API. Cada endpoint está asociado con una operación específica, como <code class="docutils literal notranslate"><span class="pre">GET</span></code> (Obtener información), <code class="docutils literal notranslate"><span class="pre">POST</span></code> (Añadir nueva información), <code class="docutils literal notranslate"><span class="pre">PUT</span></code> (Reemplazar una información guardada), o <code class="docutils literal notranslate"><span class="pre">DELETE</span></code> (Eliminar información de la API).</p>
+<p class="sd-card-text">Con esto es importante entender las API’s generalmente <em>(pero no siempre)</em> manejan una base o fuente de datos que funcionen como memoria de la aplicación <em><strong>(permitiendo generar conceptos como la persistencia e integridad de datos, trazabilidad o auditoría y gestión como sistema de información)</strong></em>.</p>
+</div>
+</details><p>Lo primero que debemos hacer es configurar correctamente nuestro entorno de desarrollo, esto aplica para cualquier desarrollo que se realice en Python.</p>
+<section id="entorno-virtual">
+<h2>Entorno virtual<a class="headerlink" href="#entorno-virtual" title="Link to this heading">#</a></h2>
+<p>Opcionalmente se recomienda aprender a usar entornos virtuales en Python si queremos manejar las dependencias de nuestro proyecto de manera eficiente y sin afectar la instalación global de Python.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Configuración e Instalación</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Un entorno virtual es un directorio que tiene como función aislar todas las librerías, módulos y dependencias para un proyecto en particular. Esto se hace porque cada proyecto puede tener diferentes versiones de las librerías y módulos, y a veces pueden ser incompatibles entre sí.</p>
+<p class="sd-card-text">Para crear un entorno virtual, debemos instalar la librería <code class="docutils literal notranslate"><span class="pre">virtualenv</span></code> que nos permitirá crear un entorno virtual. Para ello, abrimos una terminal y ejecutamos el siguiente comando:</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">virtualenv</span>
+</pre></div>
+</div>
+<p class="sd-card-text">Una vez instalado <code class="docutils literal notranslate"><span class="pre">virtualenv</span></code>, vamos a crear un entorno virtual en la carpeta <code class="docutils literal notranslate"><span class="pre">Mini-Back</span></code>. Para ello, ejecutamos el siguiente comando:</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">-m</span> <span class="n">venv</span> <span class="p">.</span><span class="n">venv</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p class="sd-card-text">Si usamos <code class="docutils literal notranslate"><span class="pre">ctrl</span> <span class="pre">+</span> <span class="pre">shift</span> <span class="pre">+</span> <span class="pre">p</span></code> y escribimos <code class="docutils literal notranslate"><span class="pre">Python:</span> <span class="pre">Create</span> <span class="pre">Environment</span></code>, seleccionamos la opción <code class="docutils literal notranslate"><span class="pre">Venv</span></code> (Virtual Environment) y finalmente la versión de Python que deseemos.</p>
+</div>
+<p class="sd-card-text"><em>El uso de <code class="docutils literal notranslate"><span class="pre">-m</span></code> es para especificar un módulo, en este caso <code class="docutils literal notranslate"><span class="pre">venv</span></code> que es el módulo que nos permite crear entornos virtuales y así no tomar otro módulo que se pueda llamar igual.</em>
+Este comando creará un directorio llamado <code class="docutils literal notranslate"><span class="pre">.venv</span></code> en la carpeta <code class="docutils literal notranslate"><span class="pre">Mini-Back</span></code>. No obstante <strong>debemos activar siempre</strong> el entorno virtual <em>(se desactiva al cerrar el editor)</em>, ejecutamos el siguiente comando:</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="n">venv</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">activate</span>
+</pre></div>
+</div>
+<p class="sd-card-text">Podremos notar cómo en la terminal aparece el nombre del entorno virtual activo, en este caso <code class="docutils literal notranslate"><span class="pre">(.venv)</span></code>. En caso se necesite desactivar el entorno virtual, se ejecuta el comando:</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">deactivate</span>
+</pre></div>
+</div>
+</div>
+</details></section>
+<section id="requerimientos">
+<h2>Requerimientos<a class="headerlink" href="#requerimientos" title="Link to this heading">#</a></h2>
+<p>En desarrollos colaborativos, es importante tener un archivo que contenga todas las librerías y módulos que se necesitan para ejecutar el proyecto. Para ello, vamos a crear un archivo llamado <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> en la carpeta raíz (<code class="docutils literal notranslate"><span class="pre">Mini-Back</span></code>) y vamos a agregar las siguientes librerías:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>fastapi
+uvicorn
+pydantic
+python-dotenv
+ruff
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>En python 3.8+ se puede usar <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">freeze</span> <span class="pre">&gt;</span> <span class="pre">requirements.txt</span></code> para habiendo ya instalado las dependencias, generar este archivo <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> con todas las librerías instaladas en el entorno virtual.</p>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Más sobre versionamiento!</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Cuando defines las dependencias en tu archivo <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>, puedes especificar las versiones de varias maneras para asegurar que tu proyecto use versiones compatibles de cada librería. Aquí te explico algunas opciones:</p>
+<ol class="arabic">
+<li><p class="sd-card-text"><strong>Versión exacta</strong>: Usarás exactamente la versión especificada.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>fastapi==0.68.0
+</pre></div>
+</div>
+<p class="sd-card-text">Esto significa que <code class="docutils literal notranslate"><span class="pre">fastapi</span></code> se instalará en la versión <code class="docutils literal notranslate"><span class="pre">0.68.0</span></code>.</p>
+</li>
+<li><p class="sd-card-text"><strong>Mínima versión específica</strong>: Usarás al menos la versión especificada.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>uvicorn&gt;=0.15.0
+</pre></div>
+</div>
+<p class="sd-card-text">Esto significa que <code class="docutils literal notranslate"><span class="pre">uvicorn</span></code> se instalará en la versión <code class="docutils literal notranslate"><span class="pre">0.15.0</span></code> o una versión más reciente.</p>
+</li>
+<li><p class="sd-card-text"><strong>Máxima versión específica</strong>: No se instalarán versiones mayores que la especificada.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pydantic&lt;1.8.2
+</pre></div>
+</div>
+<p class="sd-card-text">Esto significa que <code class="docutils literal notranslate"><span class="pre">pydantic</span></code> se instalará en una versión anterior a la <code class="docutils literal notranslate"><span class="pre">1.8.2</span></code>.</p>
+</li>
+<li><p class="sd-card-text"><strong>Rango de versiones</strong>: Puedes combinar criterios para definir un rango de versiones permitidas.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>uvicorn&gt;=0.15.0,&lt;=0.17.0
+</pre></div>
+</div>
+<p class="sd-card-text">Esto significa que <code class="docutils literal notranslate"><span class="pre">uvicorn</span></code> se instalará en una versión entre la <code class="docutils literal notranslate"><span class="pre">0.15.0</span></code> y la <code class="docutils literal notranslate"><span class="pre">0.17.0</span></code>, inclusive.</p>
+</li>
+<li><p class="sd-card-text"><strong>Versión compatible (tilde)</strong>: Instala versiones compatibles con la especificada.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ruff~=0.1.0
+</pre></div>
+</div>
+<p class="sd-card-text">Esto significa que <code class="docutils literal notranslate"><span class="pre">ruff</span></code> se instalará en una versión compatible con la <code class="docutils literal notranslate"><span class="pre">0.1.0</span></code>. Generalmente, esto incluye cualquier versión que no cambie el primer número después del punto (por ejemplo, <code class="docutils literal notranslate"><span class="pre">0.1.1</span></code>, <code class="docutils literal notranslate"><span class="pre">0.1.2</span></code>, pero no <code class="docutils literal notranslate"><span class="pre">0.2.0</span></code>).</p>
+</li>
+</ol>
+<h3 class="rubric" id="ejemplo-completo">Ejemplo Completo</h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>fastapi==0.68.0
+uvicorn&gt;=0.15.0,&lt;=0.17.0
+pydantic&lt;1.8.2
+python-dotenv&gt;=0.19.0
+ruff~=0.1.0
+</pre></div>
+</div>
+<p class="sd-card-text">Si no especificamos la versión en las librerías, se instalará la última versión disponible. Es importante tener en cuenta que las versiones de las librerías pueden cambiar y esto puede afectar el funcionamiento de tu proyecto, por lo que es recomendable especificar las versiones de las librerías que se van a utilizar.</p>
+</div>
+</details><div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>La instalación de Python en un entorno virtual está aislada de la instalación global. Esto significa que los paquetes instalados en el entorno virtual no afectarán otros proyectos generados que no usen dicho entorno.</p>
+</div>
+<p>Sabiendo que tenemos activado el entorno vitual, vamos a instalar las librerías y módulos necesarios para nuestro proyecto. Para ello, ejecutamos el siguiente comando:</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">-m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">-r</span> <span class="n">requirements</span><span class="p">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>En este indicamos que ejecutaremos el módulo <code class="docutils literal notranslate"><span class="pre">pip</span></code> de Python para instalar mediante una acción de lectura (<code class="docutils literal notranslate"><span class="pre">-r</span></code>) las librerías y módulos que se encuentran definidas en el archivo <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>.</p>
+<p>Esperamos a que se instalen todas las librerías y módulos necesarios para nuestro proyecto.</p>
+</section>
+<section id="fastapi-web-framework">
+<h2>FastAPI Web Framework<a class="headerlink" href="#fastapi-web-framework" title="Link to this heading">#</a></h2>
+<p>FastAPI nos permite hacer desarrollos en la web usando Python, no obstante tiene dependencia de <code class="docutils literal notranslate"><span class="pre">uvicorn</span></code> para poder ejecutar el servidor. Para ello, vamos a crear un archivo llamado <code class="docutils literal notranslate"><span class="pre">main.py</span></code> en la carpeta raíz y vamos a agregar el siguiente código:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+
+<span class="n">app</span><span class="p">:</span> <span class="n">FastAPI</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">(</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Mini Backend | Mi Nombre.&quot;</span><span class="p">,</span>
+    <span class="n">summary</span><span class="o">=</span><span class="s2">&quot;Técnicas de programación, 2024B&quot;</span><span class="p">,</span>
+    <span class="n">version</span><span class="o">=</span><span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">root</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="s2">&quot;Hello algorithms!&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Directorio actual</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>Mini-Back
+├── .venv/
+├── main.py
+└── requirements.txt
+</pre></div>
+</div>
+</div>
+</details><p>Para ver el resultado abrimos una terminal y ejecutamos el siguiente comando:</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">uvicorn</span> <span class="n">main</span><span class="p">:</span><span class="n">app</span> <span class="p">-</span><span class="n">-reload</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>El comando <code class="docutils literal notranslate"><span class="pre">uvicorn</span></code> nos permite ejecutar el servidor web, <code class="docutils literal notranslate"><span class="pre">main:app</span></code> indica que en el archivo <code class="docutils literal notranslate"><span class="pre">main.py</span></code> contiene el objeto o instancia de <code class="docutils literal notranslate"><span class="pre">app</span></code> FastAPI <em>(el aplicativo)</em> y <code class="docutils literal notranslate"><span class="pre">--reload</span></code> permite recargar el servidor cada vez que se realice un cambio al código.</p>
+</div>
+<p>De esta forma, cuando abramos un navegador y vayamos a la dirección indicada, cual por defecto es <code class="docutils literal notranslate"><span class="pre">http://127.0.0.1:8000/</span></code>, la previamente mencionada dirección IP de Localhost, donde lo que precede a los dos puntos es el puerto <em>(8080)</em>.</p>
+<p>Deberíamos ver el mensaje <code class="docutils literal notranslate"><span class="pre">{&quot;data&quot;:</span> <span class="pre">&quot;Hello</span> <span class="pre">algorithms!&quot;}</span></code> en el navegador.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Para detener el servidor, basta con presionar <code class="docutils literal notranslate"><span class="pre">ctrl</span> <span class="pre">+</span> <span class="pre">c</span></code> en la terminal.</p>
+</div>
+<p>Pero entonces, ¿Qué hemos hecho? Hemos creado un servidor web que nos devuelve un mensaje en formato JSON <em>(JavaScript Object Notation)</em>, en este caso <code class="docutils literal notranslate"><span class="pre">{&quot;data&quot;:</span> <span class="pre">&quot;Hello</span> <span class="pre">algorithms!&quot;}</span></code> es un diccionario con clave <code class="docutils literal notranslate"><span class="pre">data</span></code> y valor <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">algorithms!</span></code>, pero se convierte en JSON en el proceso de respuesta de forma forzosa. Ahora, la dirección a la que accedemos después del puerto <code class="docutils literal notranslate"><span class="pre">8080</span></code> la hemos dejado en blanco en nuestro navegador, además, hemos definido que ante una petición de tipo <code class="docutils literal notranslate"><span class="pre">GET</span></code> a la dirección raíz <code class="docutils literal notranslate"><span class="pre">/</span></code>, se ejecute la función <code class="docutils literal notranslate"><span class="pre">root</span></code>, es por esto que nos devuelve el mensaje mencionado.</p>
+<p>FastAPI nos permite hacer desarrollos web de manera rápida y eficiente, además de ser fácil de aprender y usar.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Es importante conocer el sitio de Endpoints de FastAPI, este es conocido como <code class="docutils literal notranslate"><span class="pre">Swagger</span> <span class="pre">UI</span></code>, el cual nos permite ver y probar los endpoints de nuestra API. Para acceder a él, vamos a la dirección <code class="docutils literal notranslate"><span class="pre">http://localhost:8000/docs</span></code>.</p>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-kebab-horizontal no-title" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14a2 2 0 1 1-.001-3.999A2 2 0 0 1 20 14ZM6 12a2 2 0 1 1-3.999.001A2 2 0 0 1 6 12Zm8 0a2 2 0 1 1-3.999.001A2 2 0 0 1 14 12Z"></path></svg></span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">🎉 Felicidades 🎊 Has construído tu primer aplicativo FastAPI 🥳 De aquí en adelante vienen conceptos que darán una arquitectura sostenible y escalable a nuestro aplicativo.</p>
+</div>
+</details><section id="esquemas">
+<h3>Esquemas<a class="headerlink" href="#esquemas" title="Link to this heading">#</a></h3>
+<p>Vamos a generar un nuevo archivo llamado <code class="docutils literal notranslate"><span class="pre">exec.py</span></code> al lado de <code class="docutils literal notranslate"><span class="pre">main.py</span></code> y vamos a agregar el siguiente código:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">uvicorn</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">uvicorn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+        <span class="n">app</span><span class="o">=</span><span class="s2">&quot;main:app&quot;</span><span class="p">,</span>
+        <span class="n">host</span><span class="o">=</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span>
+        <span class="n">port</span><span class="o">=</span><span class="mi">8000</span><span class="p">,</span>
+        <span class="n">reload</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>En este definimos los parámetros sobre los que va a funcionar el servidor, en este caso iniciará el aplicativo en el archivo <code class="docutils literal notranslate"><span class="pre">main.py</span></code> con el objeto llamado <code class="docutils literal notranslate"><span class="pre">app</span></code> de tipo FastAPI en la dirección <code class="docutils literal notranslate"><span class="pre">localhost</span></code> y el puerto <code class="docutils literal notranslate"><span class="pre">8000</span></code>, además de recargar el servidor cada vez que se realice un cambio en el código.</p>
+<p>Ahora creamos dos folders, uno llamado <code class="docutils literal notranslate"><span class="pre">routes</span></code> y otro llamado <code class="docutils literal notranslate"><span class="pre">schemas</span></code> dentro de un folder llamado <code class="docutils literal notranslate"><span class="pre">api</span></code>, en el de rutas creamos un archivo llamado <code class="docutils literal notranslate"><span class="pre">busqueda.py</span></code>, su objetivo es contener los algoritmos de búsqueda vistos en el curso, acá se podrá entender la implementación de al menos uno de ellos, <code class="docutils literal notranslate"><span class="pre">Sequential</span> <span class="pre">Search</span></code>.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Directorio actual</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Debería tener la siguiente estructura:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>Mini-Back
+├── .venv/
+├── api/
+│   ├── routes/
+│   │   └── busqueda.py
+│   └── schemas/
+│       └── busqueda.py
+├── main.py
+├── exec.py
+└── requirements.txt
+</pre></div>
+</div>
+</div>
+</details><p>Vamos a modificar sobre el esquema de <code class="docutils literal notranslate"><span class="pre">busqueda.py</span></code> para que contenga el siguiente código:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">ConfigDict</span><span class="p">,</span> <span class="n">Field</span>
+
+
+<span class="k">class</span> <span class="nc">SolicitudBusqueda</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">arreglo</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="o">...</span><span class="p">,</span>
+        <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Arreglo de enteros&quot;</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Arreglo de enteros para buscar&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">objetivo</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="o">...</span><span class="p">,</span>
+        <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Objetivo&quot;</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Número a buscar en el arreglo de enteros&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">model_config</span><span class="p">:</span> <span class="n">ConfigDict</span> <span class="o">=</span> <span class="n">ConfigDict</span><span class="p">(</span>
+        <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Solicitud de búsqueda&quot;</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Solicitud de búsqueda de un número en un arreglo&quot;</span><span class="p">,</span>
+        <span class="n">populate_by_name</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">json_schema_extra</span><span class="o">=</span><span class="p">{</span>
+            <span class="s2">&quot;example&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;arreglo&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+                <span class="s2">&quot;objetivo&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>En este definimos un esquema de tipo <code class="docutils literal notranslate"><span class="pre">BaseModel</span></code> <em>(Usado para crear modelos Pydantic)</em> que contiene un arreglo de enteros y un número objetivo. Todas las entradas en el cuerpo de datos se definirán con el objeto <code class="docutils literal notranslate"><span class="pre">Field</span></code>, este puede dejarse sólo como <code class="docutils literal notranslate"><span class="pre">Field(...)</span></code> pero por claridad se le ha añadido un título y una descripción, así mismo es importante definir los tipos de parámetros utilizados.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">¿Cómo tipo en python?</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Tipar en python es algo que siempre ha sido opcional, pero desde Python 3.5+ es posible tipar variables y funciones, esto con el fin de mejorar legibilidad y sobre todo, poder detectar errores o evitar infringir restricciones de nuestros datos.
+La estructura es <code class="docutils literal notranslate"><span class="pre">nombre_variable:</span> <span class="pre">tipo</span> <span class="pre">=</span> <span class="pre">valor</span></code>, donde <code class="docutils literal notranslate"><span class="pre">tipo</span></code> es el tipo de dato que se espera y <code class="docutils literal notranslate"><span class="pre">valor</span></code> es el valor que se le asigna a la variable. En las funciones, se espera un tipo de dato de retorno, esto se define con <code class="docutils literal notranslate"><span class="pre">-&gt;</span> <span class="pre">tipo_retorno</span></code> así mismo como los argumentos de la función <code class="docutils literal notranslate"><span class="pre">parametro:</span> <span class="pre">tipo</span></code> consecuentemente.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span>
+
+
+<span class="c1"># Variables básicas</span>
+<span class="n">mi_numero</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">mi_cadena</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Técnicas!&quot;</span>
+<span class="n">mi_flotante</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">3.1416</span>
+<span class="n">mi_booleano</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="c1"># Colecciones</span>
+<span class="n">mi_lista_entera</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">mi_diccionario_flotante</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;pi&quot;</span><span class="p">:</span> <span class="mf">3.1416</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">:</span> <span class="mf">2.7182</span><span class="p">,</span> <span class="s2">&quot;phi&quot;</span><span class="p">:</span> <span class="mf">1.6180</span><span class="p">}</span>
+<span class="n">mi_conjunto_booleano</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">}</span>
+<span class="n">mi_tupla_cadena</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Hola&quot;</span><span class="p">,</span> <span class="s2">&quot;Mundo&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># Funciones</span>
+<span class="k">def</span> <span class="nf">suma</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+
+<span class="c1"># También se pueden tipar variables que contengan funciones</span>
+<span class="n">adicion</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">suma</span>
+<span class="n">resultado</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">adicion</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># Así como se puede tipar con datos básicos, también se puede hacer con clases y funciones.</span>
+<span class="c1"># Puedes probar a tipar colecciones más complejas como listas de diccionarios, diccionarios de listas, etc.</span>
+
+<span class="n">lista_de_diccionarios</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">}]</span>
+<span class="n">diccionario_de_listas</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]}</span>
+<span class="n">diccionario_de_diccionarios</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
+    <span class="s2">&quot;d&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;e&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;f&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">},</span>
+<span class="p">}</span>
+<span class="n">conjunto_de_tuplas</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)}</span>
+
+<span class="c1"># Se recomienda aprender sobre los Diccionarios Tipados (TypedDict), una forma precisa para tipar diccionarios,</span>
+<span class="c1"># delimitando lo que estos puedan recibir, evitando así errores o incertidumbres.</span>
+</pre></div>
+</div>
+</div>
+</details><div class="admonition error">
+<p class="admonition-title">Error</p>
+<p>Aunque se haga aplicación de un tipado a un objeto en python, una asignación indebida no generará error como en otros lenguajes, pero sí una advertencia que debemos atender.</p>
+</div>
+<p>Ahora, <code class="docutils literal notranslate"><span class="pre">model_config</span></code> no es un parámetro de entrada en de nuestra petición, sino que es un parámetro ajustable de BaseModel para ayudarnos a definir modelos, en este caso darle un título, descripción, permitir llenar los datos dándoselos a cada nombre pero, lo más importante, dar <strong>un ejemplo</strong> de cómo se vería la entrada de datos.</p>
+<p>Añadimos ahora un esquema de respuesta en el mismo archivo <code class="docutils literal notranslate"><span class="pre">busqueda.py</span></code> dentro de la carpeta <code class="docutils literal notranslate"><span class="pre">schemas</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">RespuestaBusqueda</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">indice</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="o">...</span><span class="p">,</span>
+        <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Índice&quot;</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Índice del número encontrado en el arreglo&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">encontrado</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="o">...</span><span class="p">,</span>
+        <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Encontrado&quot;</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Indica si el número fue encontrado en el arreglo como True, si no, False&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>Hemos definido cómo es que un <strong>Cliente</strong> deberá enviarnos los datos y con qué estructura, nosotros como <strong>Servidor</strong> responderemos a esa petición. Este proceso es fundamental para la comunicación entre ambos, ya que si no se respetan las estructuras, no se podrá realizar la comunicación.</p>
+</section>
+<section id="rutas">
+<h3>Rutas<a class="headerlink" href="#rutas" title="Link to this heading">#</a></h3>
+<p>Debemos tener en cuenta que no es recomendado el aplicar lógica de negocio en una ruta, para ello más adelante se separará en otro módulo llamado <code class="docutils literal notranslate"><span class="pre">services</span></code>, pero por ahora con fin meramente demostrativo pasaremos a la implementación de la Búsqueda Secuencial en el archivo <code class="docutils literal notranslate"><span class="pre">busqueda.py</span></code> dentro de la carpeta <code class="docutils literal notranslate"><span class="pre">routes</span></code>:</p>
+<p>Primero creamos el <code class="docutils literal notranslate"><span class="pre">router</span></code>, este contendrá todos los <strong>endpoints</strong> o puntos de acceso al dispositivo o Cliente que lo solicite. En este caso, vamos a definir un solo endpoint que será de tipo <code class="docutils literal notranslate"><span class="pre">POST</span></code> y que recibirá un objeto de tipo <code class="docutils literal notranslate"><span class="pre">SolicitudBusqueda</span></code> y devolverá un objeto de tipo <code class="docutils literal notranslate"><span class="pre">RespuestaBusqueda</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">APIRouter</span><span class="p">,</span> <span class="n">status</span>
+<span class="kn">from</span> <span class="nn">api.schemas.busqueda</span> <span class="kn">import</span> <span class="n">SolicitudBusqueda</span><span class="p">,</span> <span class="n">RespuestaBusqueda</span>
+
+<span class="n">router</span> <span class="o">=</span> <span class="n">APIRouter</span><span class="p">()</span>
+
+<span class="nd">@router</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+    <span class="s2">&quot;/secuencial&quot;</span><span class="p">,</span>
+    <span class="n">status_code</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_200_OK</span><span class="p">,</span>
+    <span class="n">response_model</span><span class="o">=</span><span class="n">RespuestaBusqueda</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="k">def</span> <span class="nf">sequential_search</span><span class="p">(</span><span class="n">dto</span><span class="p">:</span> <span class="n">SolicitudBusqueda</span><span class="p">):</span>
+    <span class="c1"># Algoritmo aquí! #</span>
+    <span class="k">return</span> <span class="n">RespuestaBusqueda</span><span class="p">(</span>
+        <span class="n">indice</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">encontrado</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>Debemos modificar el archivo <code class="docutils literal notranslate"><span class="pre">main.py</span></code> para que importe las rutas que vamos a definir en el archivo <code class="docutils literal notranslate"><span class="pre">busqueda.py</span></code>, además de importar las librerías necesarias para poder hacer uso de FastAPI. Para esto haremos uso de la función <code class="docutils literal notranslate"><span class="pre">include_router</span></code> que nos permite incluir las rutas definidas en un archivo en particular.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+
+<span class="n">app</span><span class="p">:</span> <span class="n">FastAPI</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">(</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Mini Backend | Mi Nombre.&quot;</span><span class="p">,</span>
+    <span class="n">summary</span><span class="o">=</span><span class="s2">&quot;Técnicas de programación, 2024B&quot;</span><span class="p">,</span>
+    <span class="n">version</span><span class="o">=</span><span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">app</span><span class="o">.</span><span class="n">include_router</span><span class="p">(</span><span class="n">busqueda</span><span class="o">.</span><span class="n">router</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;/busqueda&quot;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Búsqueda&quot;</span><span class="p">])</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">root</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="s2">&quot;Hello algorithms!&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Finalmente hacemos ejecución de nuestro archivo <code class="docutils literal notranslate"><span class="pre">exec.py</span></code> y accedemos a la sección de docs.</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">exec</span><span class="p">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>Ya no necesitamos ejecutar <code class="docutils literal notranslate"><span class="pre">uvicorn</span></code> directamente, ya que <code class="docutils literal notranslate"><span class="pre">exec.py</span></code> esta delegado como inicio del aplicativo, de forma que ejecuta <code class="docutils literal notranslate"><span class="pre">app</span></code> desde main el cual a su vez carga todas las rutas (incluídas) en vuestro navegador. El flujo finalmente termina cuando la ruta devuelve el objeto respuesta para que podamos verlo en el navegador.</p>
+<img src='../../_static/images/tema_01/swagger.png' style='border-radius: 1rem;'/>
+</section>
+<section id="analisis-de-busqueda-secuencial">
+<h3>Análisis de Búsqueda Secuencial<a class="headerlink" href="#analisis-de-busqueda-secuencial" title="Link to this heading">#</a></h3>
+<p>La búsqueda secuencial o lineal es un algoritmo donde dado un arreglo desordenado o no de elementos distintos, valida la existencia de un elemento dado por el usuario <em>(la precondición)</em>, si está devuelve el índice en el que se encuentre, si no, devuelve <code class="docutils literal notranslate"><span class="pre">-1</span></code> <em>(la postcondición)</em>. Este algoritmo es de complejidad computacional temporal <span class="math notranslate nohighlight">\(T(n)\in O(n)\)</span> <em>(lineal)</em>, es decir, su tiempo de ejecución es proporcional al tamaño del arreglo. en el peor escenario.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>El argumento <code class="docutils literal notranslate"><span class="pre">dto</span></code> es una abreviación de <code class="docutils literal notranslate"><span class="pre">Data</span> <span class="pre">Transfer</span> <span class="pre">Object</span></code>, es una forma de referirse a un objeto que se utiliza para transferir datos entre subsistemas de una aplicación. En este caso, <code class="docutils literal notranslate"><span class="pre">dto</span></code> es el objeto que recibe la petición del Cliente y es el objeto que se envía como respuesta al Cliente.</p>
+</div>
+<p>Se manejará la siguiente entrada de datos:
+<img src='../../_static/images/tema_01/requesting.png' style='border-radius: 1rem;'/></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sequential_search</span><span class="p">(</span><span class="n">dto</span><span class="p">:</span> <span class="n">SolicitudBusqueda</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RespuestaBusqueda</span><span class="p">:</span>
+    <span class="n">indice_sin_encontrar</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">for</span> <span class="n">indice</span><span class="p">,</span> <span class="n">entero</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dto</span><span class="o">.</span><span class="n">arreglo</span><span class="p">):</span> <span class="c1"># (idx, elem) &lt;- enumerate(colection)</span>
+        <span class="k">if</span> <span class="n">entero</span> <span class="o">==</span> <span class="n">dto</span><span class="o">.</span><span class="n">objetivo</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">RespuestaBusqueda</span><span class="p">(</span>
+                <span class="n">indice</span><span class="o">=</span><span class="n">indice</span><span class="p">,</span>
+                <span class="n">encontrado</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="p">)</span>
+    <span class="k">return</span> <span class="n">RespuestaBusqueda</span><span class="p">(</span>
+        <span class="n">indice</span><span class="o">=</span><span class="n">indice_sin_encontrar</span><span class="p">,</span>
+        <span class="n">encontrado</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>Para la resolución del problema haremos uso de un ciclo <code class="docutils literal notranslate"><span class="pre">for-each</span></code> simultáneo a uno <code class="docutils literal notranslate"><span class="pre">for-i</span></code>, en Python existe la función <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> que nos permite recorrer una colección asociando un indice a cada elemento, nos devuelve una tupla donde primero obtenemos el índice y luego el elemento.
+En cada iteración comparamos si el elemento es igual al buscado, si es así podemos devolver el índice e indicar que se ha encontrado con <code class="docutils literal notranslate"><span class="pre">True</span></code>, caso contrario a no encontrarlo, devolvemos <code class="docutils literal notranslate"><span class="pre">-1</span></code> e indicamos que no se ha encontrado con <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<img src='../../_static/images/tema_01/response.png' style='border-radius: 1rem;'/>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>El uso de <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> es muy común en Python, pero no es la única función que permite recorrer una colección de una forma especializada, podemos también hacer uso de <code class="docutils literal notranslate"><span class="pre">zip</span></code>, <code class="docutils literal notranslate"><span class="pre">map</span></code>, <code class="docutils literal notranslate"><span class="pre">filter</span></code>, entre otras. Se invita fuertemente a investigar sobre estas funciones y sus aplicaciones al iterar colecciones en Python.</p>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-kebab-horizontal no-title" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14a2 2 0 1 1-.001-3.999A2 2 0 0 1 20 14ZM6 12a2 2 0 1 1-3.999.001A2 2 0 0 1 6 12Zm8 0a2 2 0 1 1-3.999.001A2 2 0 0 1 14 12Z"></path></svg></span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><strong>🎉 Enhorabuena 🎊</strong>
+Has hecho tu primera lógica en el Framework de FastAPI 🥳 Con esto tienes lo necesario para practicar aún más y explorar las distintas formas de manejar entradas de datos, definir esquemas y crear múltiples niveles de lógica en un aplicativo ¡Nos vemos hasta la próxima!</p>
+</div>
+</details></section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./temas/uno"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="configuracion.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Configuraciones finales</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../unidad_01.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Coming Soon U1… 🚧</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entorno-virtual">Entorno virtual</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requerimientos">Requerimientos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fastapi-web-framework">FastAPI Web Framework</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#esquemas">Esquemas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rutas">Rutas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-busqueda-secuencial">Análisis de Búsqueda Secuencial</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Luz E. Over V.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

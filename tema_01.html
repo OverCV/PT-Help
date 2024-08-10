@@ -1,0 +1,621 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Tema 01: Introducción a la web 🌐 &#8212; Técnicas de Programación</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=557cc708" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tema_01';</script>
+    <link rel="icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Instalación de C++ Tools" href="temas/uno/instalar_cpp_tools.html" />
+    <link rel="prev" title="Técnicas de Programación 👩‍💻💻👨‍💻" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://github.com/OverCV.png" class="logo__image only-light" alt="Técnicas de Programación - Home"/>
+    <script>document.write(`<img src="https://github.com/OverCV.png" class="logo__image only-dark" alt="Técnicas de Programación - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    <span class='hero-banner'>Técnicas de Programación 👩‍💻💻👨‍💻</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Tema 01: Introducción a la web 🌐</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="temas/uno/instalar_cpp_tools.html">Instalación de C++ Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="temas/uno/instalar_vsc.html">Instalación de Visual Studio Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="temas/uno/instalar_python.html">Instalación y configuración de Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="temas/uno/configuracion.html">Configuraciones finales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="temas/uno/fastapi.html">Introducción a FastAPI</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="unidad_01.html">Coming Soon U1… 🚧</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="unidades/uno/adquisicion_datos.html">adquisicion_datos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="unidades/uno/ad/lectura_escritura_consola.html">lectura_escritura_consola</a></li>
+<li class="toctree-l3"><a class="reference internal" href="unidades/uno/ad/lectura_escritura_archivos.html">lectura_escritura_archivos</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="unidades/uno/operar_cadenas.html">operar_cadenas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidades/uno/operar_listas.html">operar_listas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidades/uno/operar_pilas.html">operar_pilas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidades/uno/operar_colas.html">operar_colas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidades/uno/problemas_aplicados.html">problemas_aplicados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidades/uno/documentacion_codigo.html">documentacion_codigo</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="unidad_02.html">Coming Soon U2… 🚧</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="unidades/dos/fuerza_bruta.html">fuerza_bruta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidades/dos/recursividad.html">recursividad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidades/dos/dividir_y_vencer.html">dividir_y_vencer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidades/dos/backtracking.html">backtracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidades/dos/resolucion_problemas.html">resolucion_problemas</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="unidad_03.html">Coming Soon U3… 🚧</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="unidades/tres/busqueda_lineal.html">busqueda_lineal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidades/tres/busqueda_binaria.html">busqueda_binaria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidades/tres/ordenamiento_burbuja.html">ordenamiento_burbuja</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidades/tres/ordenamiento_seleccion.html">ordenamiento_seleccion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidades/tres/ordenamiento_insercion.html">ordenamiento_insercion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidades/tres/ordenamiento_mezcla.html">ordenamiento_mezcla</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unidades/tres/resolucion_problemas.html">resolucion_problemas</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/OverCV/ADA-Help" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/OverCV/ADA-Help/edit/main/tema_01.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/OverCV/ADA-Help/issues/new?title=Issue%20on%20page%20%2Ftema_01.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/tema_01.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Tema 01: Introducción a la web 🌐</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivacion">Motivación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptos-basicos">Conceptos básicos 🧱</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-el-internet">¿Qué es el internet?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#de-que-partimos">¿De qué partimos?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#peticiones-y-solicitudes">¿Peticiones y solicitudes?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-serpentosa-amiga">La serpentosa amiga</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="tema-01-introduccion-a-la-web">
+<h1>Tema 01: Introducción a la web 🌐<a class="headerlink" href="#tema-01-introduccion-a-la-web" title="Link to this heading">#</a></h1>
+<p>Bienvenid&#64; al primer tema del curso. En esta unidad, aprenderemos algunos conceptos fundamentales que nos serán de mucha utilidad para desarrollar más allá de las ya conocidas aplicaciones de escritorio.</p>
+<section id="motivacion">
+<h2>Motivación<a class="headerlink" href="#motivacion" title="Link to this heading">#</a></h2>
+<p>Al momento de hacer cualquier desarrollo debemos ser capaces de adaptarnos a las necesidades del cliente, incluso si esto implica lanzarnos a aprender una <strong>nueva tecnología</strong>. El desarrollo web es un área que ha crecido exponencialmente en la última década y con ello la demanda de profesionales que puedan plasmar las ideas y necesidades creadas para cualquier <strong>lógica del negocio</strong>, sea financiero, educativo, del entretenimiento, etc.</p>
+<p>Con ello vamos a ganar técnicas y habilidades que nos permitan desarrollar proficientemente la parte lógica de una aplicación y pueda luego extrapolarse a casi cualquier desarrollo presentado.</p>
+</section>
+<section id="conceptos-basicos">
+<h2>Conceptos básicos 🧱<a class="headerlink" href="#conceptos-basicos" title="Link to this heading">#</a></h2>
+<section id="que-es-el-internet">
+<h3>¿Qué es el internet?<a class="headerlink" href="#que-es-el-internet" title="Link to this heading">#</a></h3>
+<p>El internet es una red global que conecta a millones de dispositivos en todo el mundo, permitiéndoles el intercambio de información. Por debajo se hace uso de protocolos que son, en esencia, reglas que permiten la comunicación entre los dispositivos, los más comunes son el <strong>HTTP</strong>/<strong>HTTPS</strong>, <strong>FTP</strong>, <strong>TCP/IP</strong>, entre otros.</p>
+<p>Un sitio web es un conjunto de documentos que se encuentran relacionados entre sí y que comparten una temática en común. Estas páginas web se encuentran alojadas en un servidor web y son accesibles a través de un navegador web.</p>
+</section>
+<section id="de-que-partimos">
+<h3>¿De qué partimos?<a class="headerlink" href="#de-que-partimos" title="Link to this heading">#</a></h3>
+<p>Como se mencionó antes, la web nos permite compartir información, pero esto sólo es posible si conocemos las direcciones o sitios que queramos visitar. Tu ordenador ahora mismo puede convertirse en un medio de información, para ello vamos a expresar el concepto de <strong>Servidor</strong> puesto que sirves información, tienes la capacidad de proveer un servicio a otro dispositivo <em>(o incluso a sí mismo)</em> cuando solicite.</p>
+<p>Para ello, cada ordenador cuenta con una dirección IP que lo referencia a sí mismo, que en contexto de redes (IPv4) es como la ubicación actual de una persona en un mapa, pero como es complicado recordar la coordenada exacta de cada lugar, se crean los llamados <strong>dominios</strong> que son una dirección más amigable para el usuario, como por ejemplo <code class="docutils literal notranslate"><span class="pre">www.google.com</span></code> <em>(DNS/domain name system)</em>.</p>
+<p>En este caso, vamos a exponer una dirección IP que de forma <strong>local</strong> se refiera a tu propio ordenador, pero que en el contexto de la web se refiera a un <strong>servidor</strong>. Para ello, haremos uso de la dirección <code class="docutils literal notranslate"><span class="pre">http://127.0.0.1</span></code>, mejor conocida con el alias de <code class="docutils literal notranslate"><span class="pre">localhost</span></code>. Esta dirección refiere a tu propio ordenador.</p>
+<p>Más adelante ahondaremos en cómo exponer un host local para realizar procesos de desarrollo.</p>
+</section>
+</section>
+<section id="peticiones-y-solicitudes">
+<h2>¿Peticiones y solicitudes?<a class="headerlink" href="#peticiones-y-solicitudes" title="Link to this heading">#</a></h2>
+<p>Desde la arquitectura más común en la web conocida como <strong>cliente-servidor</strong>, un cliente solicita información a un servidor y este le responde con la información solicitada en lo posible. Ahora, ¿Qué es un <em>cliente</em>? Así como antes, también es un dispositivo como tu ordenador, tu celular, cualquier dispositivo que pueda conectarse a la web y realizar una solicitud a tu dominio o dirección IP. Por ejemplo, cuando pulsas un botón, este puede desencadenar una petición a un servidor para actualizar los ítems de tu lista de tareas, o incluso para mostrar un video en tu pantalla.</p>
+</section>
+<section id="la-serpentosa-amiga">
+<h2>La serpentosa amiga<a class="headerlink" href="#la-serpentosa-amiga" title="Link to this heading">#</a></h2>
+<p>En esta tarea vamos a llevar a cabo muchos procesos de abstracción, es decir, entender la funcionalidad actual del mecanismo y dar por hecho que hay demasiadas cosas que no podremos construir desde cero puesto no es el fin del curso ni pertinente en tiempo, no obstante se invita a indagar siempre que la curiosidad lo permita.
+Usaremos Python como medio para expresar la lógica del aplicativo en cuestión, donde luego haremos una conexión como servidor web.</p>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class='hero-banner'>Técnicas de Programación 👩‍💻💻👨‍💻</span></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="temas/uno/instalar_cpp_tools.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Instalación de C++ Tools</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivacion">Motivación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptos-basicos">Conceptos básicos 🧱</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-el-internet">¿Qué es el internet?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#de-que-partimos">¿De qué partimos?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#peticiones-y-solicitudes">¿Peticiones y solicitudes?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-serpentosa-amiga">La serpentosa amiga</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Luz E. Over V.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
