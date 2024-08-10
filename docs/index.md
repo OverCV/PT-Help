@@ -44,23 +44,15 @@ class='rounded' >](mailto:luzenith_g@ucaldas.edu.co)
 
 ## Objetivos del curso 🎯
 
-<!-- Proporcionar a los estudiantes una comprensión sólida de los principios y prácticas fundamentales, de forma tal para que puedan desarrollar habilidades en la escritura de código eficiente y efectivo, resolver problemas mediante algoritmos, y la aplicación de diversas técnicas de programación. Al finalizar el curso, los estudiantes serán capaces de:
+Capacitar a los estudiantes en técnicas de programación que les permitan resolver *problemas* computacionales de manera **eficiente**, mediante la adquisición efectiva, procesamiento y gestión de datos, el diseño de algoritmos robustos utilizando **métodos** como la fuerza bruta, recursión y backtracking.
 
-- Comprender los conceptos básicos de la programación y aplicar estos conocimientos en la creación de programas funcionales.
-Desarrollar y analizar algoritmos para la solución de problemas complejos.
-- Utilizar estructuras de datos adecuadas para optimizar el rendimiento de los programas.
-Implementar técnicas avanzadas de programación, como la programación orientada a objetos, la programación funcional, y la programación concurrente.
-- Escribir código limpio, modular y mantenible siguiendo buenas prácticas y estándares de la industria.
-- Depurar y probar programas para asegurar su correcto funcionamiento y calidad.
-- Colaborar en proyectos de programación en equipo, utilizando herramientas de control de versiones y metodologías ágiles. -->
+- Aprender a utilizar diversas técnicas de programación para adquirir, procesar y gestionar datos de manera efectiva en *diferentes contextos*.
 
-Capacitar a los estudiantes en técnicas de programación que les permitan resolver problemas computacionales de manera eficiente, mediante la adquisición efectiva, procesamiento y gestión de datos, el diseño de algoritmos robustos utilizando métodos como la fuerza bruta, recursión y backtracking.
+- Capacitar en la implementación de **técnicas avanzadas**, como la fuerza bruta, recursión y backtracking, para diseñar y construir algoritmos eficientes que resuelvan *problemas complejos*.
 
-- Aprender a utilizar diversas técnicas de programación para adquirir, procesar y  gestionar datos de manera efectiva en diferentes contextos.
+- Comprender técnicas de **búsqueda y ordenamiento**, seleccionando e implementando los métodos más adecuados para cada situación, mejorando así la *eficiencia y efectividad* de los programas desarrollados.
 
-- Capacitar en la implementación de técnicas avanzadas, como la fuerza bruta, recursión y backtracking, para diseñar y construir algoritmos eficientes que resuelvan problemas complejos.
-
-- Comprender técnicas de búsqueda y ordenamiento, seleccionando e implementando los métodos más adecuados para cada situación, mejorando así la eficiencia y efectividad de los programas desarrollados.
+<!-- eficiencia VS eficacia VS efectividad -->
 
 ## Contenido del curso 📚📖
 
