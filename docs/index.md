@@ -44,7 +44,7 @@ class='rounded' >](mailto:luzenith_g@ucaldas.edu.co)
 
 ## Objetivos del curso 🎯
 
-Proporcionar a los estudiantes una comprensión sólida de los principios y prácticas fundamentales, de forma tal para que puedan desarrollar habilidades en la escritura de código eficiente y efectivo, resolver problemas mediante algoritmos, y la aplicación de diversas técnicas de programación. Al finalizar el curso, los estudiantes serán capaces de:
+<!-- Proporcionar a los estudiantes una comprensión sólida de los principios y prácticas fundamentales, de forma tal para que puedan desarrollar habilidades en la escritura de código eficiente y efectivo, resolver problemas mediante algoritmos, y la aplicación de diversas técnicas de programación. Al finalizar el curso, los estudiantes serán capaces de:
 
 - Comprender los conceptos básicos de la programación y aplicar estos conocimientos en la creación de programas funcionales.
 Desarrollar y analizar algoritmos para la solución de problemas complejos.
@@ -52,7 +52,15 @@ Desarrollar y analizar algoritmos para la solución de problemas complejos.
 Implementar técnicas avanzadas de programación, como la programación orientada a objetos, la programación funcional, y la programación concurrente.
 - Escribir código limpio, modular y mantenible siguiendo buenas prácticas y estándares de la industria.
 - Depurar y probar programas para asegurar su correcto funcionamiento y calidad.
-- Colaborar en proyectos de programación en equipo, utilizando herramientas de control de versiones y metodologías ágiles.
+- Colaborar en proyectos de programación en equipo, utilizando herramientas de control de versiones y metodologías ágiles. -->
+
+Capacitar a los estudiantes en técnicas de programación que les permitan resolver problemas computacionales de manera eficiente, mediante la adquisición efectiva, procesamiento y gestión de datos, el diseño de algoritmos robustos utilizando métodos como la fuerza bruta, recursión y backtracking.
+
+- Aprender a utilizar diversas técnicas de programación para adquirir, procesar y  gestionar datos de manera efectiva en diferentes contextos.
+
+- Capacitar en la implementación de técnicas avanzadas, como la fuerza bruta, recursión y backtracking, para diseñar y construir algoritmos eficientes que resuelvan problemas complejos.
+
+- Comprender técnicas de búsqueda y ordenamiento, seleccionando e implementando los métodos más adecuados para cada situación, mejorando así la eficiencia y efectividad de los programas desarrollados.
 
 ## Contenido del curso 📚📖
 
@@ -70,51 +78,42 @@ Introducción al Backend
 :::
 
 :::{grid-item-card}
-:link: tema_02
+:link: unidad_01
 :link-type: doc
 :class-header: bg-light
-**Tema 02 🧵**
+**Unidad 01 🔁🌲**
 ^^^
-Programación Funcional
+Fundamentos en Estructuración y Manipulación de Datos
 :::
 
 :::{grid-item-card}
-<!-- :link: tema_03 -->
+:link: unidad_02
 :link-type: doc
 :class-header: bg-light
-**Tema 03 🎯**
+**Unidad 02 ✍️💻**
 ^^^
-Algoritmos y Complejidad
+Técnicas fundamentales de programación
 :::
 
 :::{grid-item-card}
-<!-- :link: tema_04 -->
+:link: unidad_03
 :link-type: doc
 :class-header: bg-light
-**Tema 04 🧵**
+**Unidad 03 🔍🔢**
 ^^^
-Programación Funcional
-:::
-
-:::{grid-item-card}
-<!-- :link: tema_05 -->
-:link-type: doc
-:class-header: bg-light
-**🚦 Tema 05**
-^^^
-Depuración y Pruebas
-:::
-
-:::{grid-item-card}
-<!-- :link: tema_06 -->
-:link-type: doc
-:class-header: bg-light
-**💻 Tema 06**
-^^^
-Buenas Prácticas y Metodologías
+Algoritmos de búsqueda y ordenamiento
 :::
 
 ::::
+
+## Resultados de aprendizaje 📊📈
+
+- Aplica diversas técnicas de programación para desarrollar algoritmos efectivos que
+resuelvan problemas computacionales **(RA1)**.
+
+- Abstrae y diseña algoritmos haciendo uso de técnicas de programación para la solución de problemas computacionales **(RA2)**.
+
+- Evalúa experimentalmente el rendimiento de algoritmos computacionales implementados mediante diversas técnicas de programación **(RA6)**.
 
 ## Información relevante ⚠️
 
@@ -122,10 +121,12 @@ Buenas Prácticas y Metodologías
 
 | Día       | Hora          | Lugar  |
 | --------- | ------------- | ------ |
-| Lunes     | 8:00 - 10:00  | Aula B |
-| Miércoles | 10:00 - 12:00 | Aula C |
+| Lunes     | 8:00 - 10:00  | Aula X |
+| Miércoles | 10:00 - 12:00 | Aula Y |
 
 ## Referencias 🔭📜
+
+Material bibliográfico con fundamentación teórica usada en la comprensión del curso.
 
 ::::{card-carousel} 2
 
@@ -134,7 +135,7 @@ Buenas Prácticas y Metodologías
 :class-body: text-center
 :class-header: bg-light text-center
 
-```{image} _static/images/ucaldas-logo.png
+```{image} _static/images/books/computer-algorithms.jpg
 :height: 300
 ```
 
@@ -145,7 +146,7 @@ Buenas Prácticas y Metodologías
 :class-body: text-center
 :class-header: bg-light text-center
 
-```{image} _static/images/ucaldas-logo.png
+```{image} _static/images/books/intro-to-the-ada.jpg
 :height: 300
 ```
 
@@ -156,7 +157,7 @@ Buenas Prácticas y Metodologías
 :class-body: text-center
 :class-header: bg-light text-center
 
-```{image} _static/images/ucaldas-logo.png
+```{image} _static/images/books/fund-algoritmia.jpg
 :height: 300
 ```
 
@@ -167,7 +168,18 @@ Buenas Prácticas y Metodologías
 :class-body: text-center
 :class-header: bg-light text-center
 
-```{image} _static/images/ucaldas-logo.png
+```{image} _static/images/books/intro-a-algoritmos.jpg
+:height: 300
+```
+
+:::
+
+:::{card}
+:margin: 3
+:class-body: text-center
+:class-header: bg-light text-center
+
+```{image} _static/images/books/ds-y-algoritmos.jpg
 :height: 300
 ```
 
